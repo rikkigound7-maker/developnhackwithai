@@ -45,11 +45,11 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | Plan | Per day | Per month | Parallel sessions | Models |
 | --- | --- | --- | --- | --- |
-| Pro | $7 | $45 | 2 | 8 base models |
-| Max | $10 | $70 | 6 | 13 models (8 base + 5 extensions) |
-| Ultron | $18 | $150 | 14 | 18 models, frontier set included |
+| Pro | $5 | $40 | 2 | 8 base models |
+| Max | $7 | $65 | 6 | 13 models (8 base + 5 extensions) |
+| Ultron | $15 | $145 | 14 | 18 models, frontier set included |
 
-Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $25 / $100 / $600 on
+Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $20 / $95 / $595 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official
 provider price, with top-ups of $8, $15, $32, $80 and $160. A 500K-token trial is available once
 per Telegram account on the base models.

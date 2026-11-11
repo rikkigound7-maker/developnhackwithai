@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy — Develop &amp; Hack_With_Ai</title>
+    <meta name="description" content="What Develop &amp; Hack_With_Ai stores, how provider keys are encrypted, which request metadata is kept and for how long, cookies, sharing and your rights." />
+    <meta name="theme-color" content="#f7f5f2" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Privacy — Develop &amp; Hack_With_Ai" />
+    <meta property="og:description" content="What Develop &amp; Hack_With_Ai stores, how provider keys are encrypted, which request metadata is kept and for how long, cookies, sharing and your rights." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("conduit.theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Develop &amp; Hack_With_Ai
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="pricing.html">Plans</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="docs.html">Documentation</a></li>
+            </ul>
+
+        <div class="nav-prefs">
+          <button class="pref-btn" data-currency-toggle aria-label="Show prices in IDR">
+            <span data-currency-label>USD</span>
+          </button>
+          <button class="pref-btn" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-secondary btn-sm nav-telegram" href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a class="btn btn-primary btn-sm" href="checkout.html">Buy now</a>
+        </div>
+
+        <button class="pref-btn nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Open menu">
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main">
+
+      <section class="page-head">
+        <div class="container">
+          <p class="eyebrow">Legal</p>
+          <h1 class="h1">Privacy policy</h1>
+          <p class="lede">What we store, for how long, and who else receives it. Only what we can show in our own systems.</p>
+          <div class="page-head-meta">
+            <span class="pill pill-lime">Updated 28 September 2026</span>
+            <span class="pill">Applies to this site</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container prose-layout">
+          <nav class="prose-nav" aria-label="On this page">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="#summary"><span class="docs-num">1</span> Summary</a></li>
+              <li><a href="#stored"><span class="docs-num">2</span> What we store</a></li>
+              <li><a href="#third-parties"><span class="docs-num">3</span> Who else receives data</a></li>
+              <li><a href="#website"><span class="docs-num">4</span> This website</a></li>
+            </ol>
+          </nav>
+
+          <div class="prose">
+            <h2 id="summary">Summary</h2>
+            <div class="card-grid">
+              <article class="card">
+                <h3>We do not sell customer data</h3>
+                <p>Data is disclosed only where applicable law requires it.</p>
+              </article>
+              <article class="card">
+                <h3>We do not train models on your data</h3>
+                <p>Our systems have no training pipeline and no export of conversation data.</p>
+              </article>
+              <article class="card">
+                <h3>Conversation content goes to the model providers</h3>
+                <p>That is the only way your request can be answered. On their side, their policies apply.</p>
+              </article>
+              <article class="card">
+                <h3>Recent content is kept briefly for diagnosis</h3>
+                <p>Only the most recent requests, each part truncated, then overwritten by the requests that follow.</p>
+              </article>
+            </div>
+
+            <h2 id="stored">What we store</h2>
+            <p>
+              Every row below is read from the running gateway's configuration, not from a promise.
+              The data stored, what it is used for, and how long it is kept.
+            </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th scope="col">Data</th><th scope="col">What for</th><th scope="col">How long</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>A record of each request: time, model, endpoint, status, token counts, key and IP address</td><td>Billing, quota, answers to <code class="mono">GET /v1/quota</code>, abuse prevention</td><td>30 days</td></tr>
+                  <tr><td>Request and response content, including the reasoning part</td><td>Diagnosing faults. Only the most recent requests across all customers, each part truncated</td><td>Overwritten by new requests, usually within minutes</td></tr>
+                  <tr><td>Technical connection signals: IP address, a hash of the client application, and a hash or a very short excerpt of the start of the conversation</td><td>Preventing keys from being shared or resold</td><td>7 days</td></tr>
+                  <tr><td>Per-minute usage counts for fair use</td><td>Driving queueing and throttling</td><td>24 hours</td></tr>
+                  <tr><td>Daily summaries made of numbers, with no conversation content</td><td>Monitoring capacity and abuse</td><td>Up to 2 years</td></tr>
+                  <tr><td>Purchase data: Telegram ID, username, Telegram profile name and orders</td><td>Delivering keys, support, bookkeeping</td><td>As long as billing and compliance require. Unpaid orders are deleted automatically</td></tr>
+                  <tr><td>Terms of Service acceptance records: version, time, IP address and user agent</td><td>Proof that the terms were accepted before payment</td><td>Not deleted</td></tr>
+                  <tr><td>Daily backups of the whole database</td><td>Recovery after a failure. Data already deleted can remain in a backup for as long as that backup is kept</td><td>7 days</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="third-parties">Who else receives data</h2>
+            <p>Only the parties needed to answer your requests and deliver your key.</p>
+            <ul>
+              <li><strong>Third-party model providers</strong> — the content of your request, so that the model can answer. Confidentiality on their side follows their policies.</li>
+              <li><strong>Telegram</strong> — the bot and the Mini App run on Telegram, so messages to the bot pass through Telegram's servers.</li>
+              <li><strong>Sentry</strong> — technical error reports. Chat request bodies are dropped, and authentication headers and cookies are filtered out.</li>
+              <li><strong>Cloudflare</strong> — this website is served through Cloudflare. API requests to <code class="mono">freeai.jembatanai.com</code> are not.</li>
+            </ul>
+
+            <h2 id="website">This website</h2>
+            <p>This website stores no orders, keys or balances.</p>
+            <p>
+              No cookies and no third-party analytics. Display preferences (theme and currency) are
+              kept in your own browser.
+            </p>
+            <p>
+              There is no self-service way to delete or download your data yet. For questions or
+              requests about your data, contact the admin on
+              <a class="text-link" href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Telegram</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              Develop &amp; Hack_With_Ai
+            </a>
+            <p>AI Gateway for Developers. One API key for the OpenAI and Anthropic formats.
+              Pay with any method, crypto included.</p>
+            <div class="nav-prefs">
+              <button class="pref-btn" data-currency-toggle aria-label="Show prices in IDR">
+                <span data-currency-label>USD</span>
+              </button>
+              <button class="pref-btn" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h2>Product</h2>
+            <ul>
+              <li><a href="pricing.html">Plans</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+              <li><a href="models.html">Models</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+              <li><a href="guides.html">Guides</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="contact.html">Contact and address</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Community</h2>
+            <ul>
+              <li><a href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Ordering bot</a></li>
+              <li><a href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Announcements channel</a></li>
+              <li><a href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Discussion group</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="refund.html">Refund</a></li>
+              <li><a href="shipping.html">Shipping</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span data-year>2026</span> Develop &amp; Hack_With_Ai. We accept all payment methods as well as crypto.</span>
+          <span class="endpoint">freeai.jembatanai.com/v1</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

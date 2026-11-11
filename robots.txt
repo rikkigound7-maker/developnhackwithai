@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /checkout.html
+
+# No sitemap yet: this build is a single-locale static site.

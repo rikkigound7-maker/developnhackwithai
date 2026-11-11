@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Documentation — Develop &amp; Hack_With_Ai</title>
+    <meta
+      name="description"
+      content="Quickstart, authentication, the five endpoints, client setup for Claude Code, Codex, Cursor, Cline, OpenCode and Kilo Code, error codes and quota."
+    />
+    <meta name="theme-color" content="#f7f5f2" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Documentation — Develop &amp; Hack_With_Ai" />
+    <meta property="og:description" content="Everything needed to put one endpoint in front of eight providers." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("conduit.theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          Develop &amp; Hack_With_Ai
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="pricing.html">Plans</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="docs.html" aria-current="page">Documentation</a></li>
+        </ul>
+
+        <div class="nav-prefs">
+          <button class="pref-btn" data-currency-toggle aria-label="Show prices in IDR">
+            <span data-currency-label>USD</span>
+          </button>
+          <button class="pref-btn" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-secondary btn-sm nav-telegram" href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a class="btn btn-primary btn-sm" href="checkout.html">Buy now</a>
+        </div>
+
+        <button class="pref-btn nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Open menu">
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-head">
+        <div class="container">
+          <p class="eyebrow">Documentation</p>
+          <h1 class="h1">Develop &amp; Hack_With_Ai documentation</h1>
+          <p class="lede">
+            One <code class="mono">sk-</code> key and one host for the OpenAI and Anthropic
+            formats. From your first request to a connected coding client.
+          </p>
+          <div class="page-head-meta">
+            <span class="pill pill-lime">OpenAI + Anthropic format</span>
+            <span class="pill">5 endpoints</span>
+            <span class="pill">6 clients covered</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container docs-layout">
+          <aside class="docs-nav" data-spy aria-label="On this page">
+            <p class="docs-nav-title">On this page</p>
+            <ol>
+              <li><a href="#quickstart"><span class="docs-num">1</span> Quickstart</a></li>
+              <li><a href="#endpoints"><span class="docs-num">2</span> Endpoints</a></li>
+              <li><a href="#clients"><span class="docs-num">3</span> Client setup</a></li>
+              <li><a href="#models"><span class="docs-num">4</span> Models and access</a></li>
+              <li><a href="#errors"><span class="docs-num">5</span> Errors</a></li>
+              <li><a href="#quota"><span class="docs-num">6</span> Check balance</a></li>
+              <li><a href="#buying"><span class="docs-num">7</span> Buying and renewing</a></li>
+              <li><a href="#support"><span class="docs-num">8</span> Support</a></li>
+            </ol>
+          </aside>
+
+          <div class="docs-body">
+            <!-- 1 -->
+            <section class="docs-section" id="quickstart">
+              <p class="eyebrow">01</p>
+              <h2 class="docs-h2">Quickstart</h2>
+
+              <div class="callout">
+                <strong>Two base URLs, one key.</strong> OpenAI-format clients use the base URL
+                with <code class="mono">/v1</code>. Anthropic-format clients use the host without
+                <code class="mono">/v1</code>, because their SDK appends
+                <code class="mono">/v1/messages</code> itself.
+              </div>
+
+              <h3 class="docs-h3">Get a key</h3>
+              <p>
+                Contact us on <a class="text-link" href="https://t.me/developnhackwithai" rel="noopener">@developnhackwithai</a>
+                to buy. We accept all payment methods as well as crypto. The Telegram bot sends
+                your <code class="mono">sk-</code> key as soon as payment is confirmed.
+              </p>
+
+              <h3 class="docs-h3">Set the base URL and key</h3>
+              <p>
+                Pick the base URL that matches your client format. The key goes in the header
+                <code class="mono">Authorization: Bearer sk-...</code>, or
+                <code class="mono">x-api-key</code> as the Anthropic SDK sends it.
+              </p>
+
+              <div class="base-url-grid">
+                <div class="base-url-card">
+                  <span class="base-url-label">OpenAI format</span>
+                  <code class="mono">https://freeai.jembatanai.com/v1</code>
+                </div>
+                <div class="base-url-card">
+                  <span class="base-url-label">Anthropic format</span>
+                  <code class="mono">https://freeai.jembatanai.com</code>
+                </div>
+              </div>
+
+              <div class="code-card mt-lg">
+                <div class="code-head">
+                  <span class="code-lang">shell</span>
+                  <button class="code-copy" data-copy="base-env" data-copy-label="Copy" data-copied-label="Copied">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                      <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span data-copy-text>Copy</span>
+                  </button>
+                </div>
+                <pre class="code-panel" id="base-env"><code><span class="tok-key">export</span> OPENAI_BASE_URL=<span class="tok-str">"https://freeai.jembatanai.com/v1"</span>
+<span class="tok-key">export</span> ANTHROPIC_BASE_URL=<span class="tok-str">"https://freeai.jembatanai.com"</span></code></pre>
+                <div class="code-foot">
+                  The OpenAI SDK expects <code class="mono">/v1</code> in the base URL; the Anthropic
+                  SDK adds it, so its base URL stops before it.
+                </div>
+              </div>
+
+              <h3 class="docs-h3">Send your first request</h3>
+              <p>Copy one of the examples below and replace <code class="mono">sk-...</code> with your key.</p>
+
+              <div class="segmented" role="tablist" aria-label="First request format" data-tabs>
+                <button role="tab" id="tab-qs-openai" aria-controls="panel-qs-openai" aria-selected="true" data-tab="qs-openai">
+                  OpenAI
+                </button>
+                <button role="tab" id="tab-qs-anthropic" aria-controls="panel-qs-anthropic" aria-selected="false" tabindex="-1" data-tab="qs-anthropic">
+                  Anthropic
+                </button>
+                <button role="tab" id="tab-qs-curl" aria-controls="panel-qs-curl" aria-selected="false" tabindex="-1" data-tab="qs-curl">
+                  curl
+                </button>
+              </div>
+
+              <div role="tabpanel" id="panel-qs-openai" aria-labelledby="tab-qs-openai" tabindex="0">
+                <div class="code-card">
+                  <div class="code-head">
+                    <span class="code-lang">python</span>
+                    <button class="code-copy" data-copy="qs-openai" data-copy-label="Copy" data-copied-label="Copied">
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                      <span data-copy-text>Copy</span>
+                    </button>
+                  </div>
+                  <pre class="code-panel" id="qs-openai"><code><span class="tok-key">from</span> openai <span class="tok-key">import</span> OpenAI
+
+OPENAI_BASE_URL = <span class="tok-str">"https://freeai.jembatanai.com/v1"</span>
+
+client = OpenAI(
+    base_url=OPENAI_BASE_URL,
+    api_key=<span class="tok-str">"sk-..."</span>,
+)
+
+reply = client.chat.completions.create(
+    model=<span class="tok-str">"anthropic/claude-sonnet-5"</span>,
+    messages=[{<span class="tok-str">"role"</span>: <span class="tok-str">"user"</span>, <span class="tok-str">"content"</span>: <span class="tok-str">"Hello!"</span>}],
+)
+
+print(reply.choices[<span class="tok-num">0</span>].message.content)</code></pre>
+                  <div class="code-foot">
+                    The response is an ordinary <code class="mono">ChatCompletion</code>; nothing is wrapped.
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" id="panel-qs-anthropic" aria-labelledby="tab-qs-anthropic" tabindex="0" hidden>
+                <div class="code-card">
+                  <div class="code-head">
+                    <span class="code-lang">python</span>
+                    <button class="code-copy" data-copy="qs-anthropic" data-copy-label="Copy" data-copied-label="Copied">
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                      <span data-copy-text>Copy</span>
+                    </button>
+                  </div>
+                  <pre class="code-panel" id="qs-anthropic"><code><span class="tok-key">from</span> anthropic <span class="tok-key">import</span> Anthropic
+
+ANTHROPIC_BASE_URL = <span class="tok-str">"https://freeai.jembatanai.com"</span>
+
+client = Anthropic(
+    base_url=ANTHROPIC_BASE_URL,
+    api_key=<span class="tok-str">"sk-..."</span>,
+)
+
+reply = client.messages.create(
+    model=<span class="tok-str">"anthropic/claude-sonnet-5"</span>,
+    max_tokens=<span class="tok-num">1024</span>,
+    messages=[{<span class="tok-str">"role"</span>: <span class="tok-str">"user"</span>, <span class="tok-str">"content"</span>: <span class="tok-str">"Hello!"</span>}],
+)
+
+print(reply.content[<span class="tok-num">0</span>].text)</code></pre>
+                  <div class="code-foot">
+                    No <code class="mono">/v1</code> here: the Anthropic SDK adds it.
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" id="panel-qs-curl" aria-labelledby="tab-qs-curl" tabindex="0" hidden>
+                <div class="code-card">
+                  <div class="code-head">
+                    <span class="code-lang">curl</span>
+                    <button class="code-copy" data-copy="qs-curl" data-copy-label="Copy" data-copied-label="Copied">
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                      <span data-copy-text>Copy</span>
+                    </button>
+                  </div>
+                  <pre class="code-panel" id="qs-curl"><code><span class="tok-key">curl</span> https://freeai.jembatanai.com/v1/chat/completions \
+  -H <span class="tok-str">"Authorization: Bearer sk-..."</span> \
+  -H <span class="tok-str">"Content-Type: application/json"</span> \
+  -d <span class="tok-str">'{
+    "model": "anthropic/claude-sonnet-5",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'</span></code></pre>
+                  <div class="code-foot">
+                    Only the base URL and the key change. The rest is your code.
+                    Add <code class="mono">"stream": true</code> to stream the answer as
+                    Server-Sent Events.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 2 -->
+            <section class="docs-section" id="endpoints">
+              <p class="eyebrow">02</p>
+              <h2 class="docs-h2">Endpoints</h2>
+              <p>
+                Three endpoints take a conversation, and two read the state of your key. All of
+                them use the same key.
+              </p>
+
+              <div class="table-wrap">
+                <table class="data-table">
+                  <caption>API endpoints, their format, and the shape of requests and responses.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Endpoint</th>
+                      <th scope="col">Request and response</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><code class="mono">POST /v1/chat/completions</code></th>
+                      <td>
+                        OpenAI Chat Completions. The body carries <code class="mono">model</code>
+                        and <code class="mono">messages</code>, optionally
+                        <code class="mono">stream</code>, <code class="mono">tools</code> and
+                        <code class="mono">max_tokens</code>. The answer is in
+                        <code class="mono">choices[0].message</code>.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code class="mono">POST /v1/responses</code></th>
+                      <td>
+                        OpenAI Responses. <code class="mono">model</code> and
+                        <code class="mono">input</code>, optionally
+                        <code class="mono">instructions</code>, <code class="mono">stream</code>
+                        and <code class="mono">tools</code>. The answer is in
+                        <code class="mono">output</code>. This is the format Codex CLI uses.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code class="mono">POST /v1/messages</code></th>
+                      <td>
+                        Anthropic Messages. <code class="mono">model</code>,
+                        <code class="mono">max_tokens</code> and
+                        <code class="mono">messages</code>, optionally
+                        <code class="mono">system</code>, with the header
+                        <code class="mono">anthropic-version</code>. The answer is in
+                        <code class="mono">content</code>.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code class="mono">GET /v1/models</code></th>
+                      <td>
+                        Models this key can use. An OpenAI-format list:
+                        <code class="mono">data</code> holds <code class="mono">id</code>,
+                        <code class="mono">owned_by</code> and
+                        <code class="mono">context_length</code> for every model your key may use.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code class="mono">GET /v1/quota</code></th>
+                      <td>
+                        Quota left on this key. Your key's status, validity, balance and usage.
+                        See <a class="text-link" href="#quota">Check balance and validity</a>.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- 3 -->
+            <section class="docs-section" id="clients">
+              <p class="eyebrow">03</p>
+              <h2 class="docs-h2">Client setup</h2>
+              <p>
+                Every client below needs only the base URL, your key, and a model id from the
+                catalogue. Any other client that accepts an OpenAI-compatible endpoint works the
+                same way.
+              </p>
+
+              <div class="segmented" role="tablist" aria-label="Client" data-tabs>
+                <button role="tab" id="tab-claude" aria-controls="panel-claude" aria-selected="true" data-tab="claude">
+                  Claude Code
+                </button>
+                <button role="tab" id="tab-codex" aria-controls="panel-codex" aria-selected="false" tabindex="-1" data-tab="codex">
+                  Codex CLI
+                </button>
+                <button role="tab" id="tab-cursor" aria-controls="panel-cursor" aria-selected="false" tabindex="-1" data-tab="cursor">
+                  Cursor
+                </button>
+                <button role="tab" id="tab-cline" aria-controls="panel-cline" aria-selected="false" tabindex="-1" data-tab="cline">
+                  Cline
+                </button>
+                <button role="tab" id="tab-opencode" aria-controls="panel-opencode" aria-selected="false" tabindex="-1" data-tab="opencode">
+                  OpenCode
+                </button>
+                <button role="tab" id="tab-kilo" aria-controls="panel-kilo" aria-selected="false" tabindex="-1" data-tab="kilo">
+                  Kilo Code
+                </button>
+              </div>
+
+              <div role="tabpanel" id="panel-claude" aria-labelledby="tab-claude" tabindex="0">
+                <p>
+                  Claude Code uses the Anthropic format. Set these variables in your shell, then
+                  run <code class="mono">claude</code>. If Claude Code asks whether to use this API
+                  key, choose <strong>Yes</strong>.
+                </p>
+                <div class="code-card">
+                  <div class="code-head">
+                    <span class="code-lang">shell</span>
+                    <button class="code-copy" data-copy="client-claude" data-copy-label="Copy" data-copied-label="Copied">
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                      <span data-copy-text>Copy</span>
+                    </button>
+                  </div>
+                  <pre class="code-panel" id="client-claude"><code><span class="tok-key">export</span> ANTHROPIC_BASE_URL=<span class="tok-str">"https://freeai.jembatanai.com"</span>
+<span class="tok-key">export</span> ANTHROPIC_API_KEY=<span class="tok-str">"sk-..."</span>
+<span class="tok-key">export</span> ANTHROPIC_MODEL=<span class="tok-str">"anthropic/claude-sonnet-5"</span>
+<span class="tok-key">export</span> ANTHROPIC_DEFAULT_HAIKU_MODEL=<span class="tok-str">"deepseek/deepseek-v4.1-flash"</span>
+
+claude</code></pre>
+                  <div class="code-foot">
+                    Without <code class="mono">ANTHROPIC_MODEL</code>, Claude Code sends its own
+                    built-in model names, which are not in the catalogue, and gets a 403. Switch
+                    models inside a session with <code class="mono">/model anthropic/claude-sonnet-5</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" id="panel-codex" aria-labelledby="tab-codex" tabindex="0" hidden>
+                <p>
+                  Codex CLI speaks only the Responses format. Add this provider to
+                  <code class="mono">~/.codex/config.toml</code>, then set your key in
+                  <code class="mono">OPENAI_API_KEY</code>.
+                </p>
+                <div class="code-card">
+                  <div class="code-head">
+                    <span class="code-lang">~/.codex/config.toml</span>
+                    <button class="code-copy" data-copy="client-codex" data-copy-label="Copy" data-copied-label="Copied">
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                      <span data-copy-text>Copy</span>
+                    </button>
+                  </div>
+                  <pre class="code-panel" id="client-codex"><code>model = <span class="tok-str">"deepseek/deepseek-v4.1-flash"</span>
+model_provider = <span class="tok-str">"jembatanai"</span>
+
+[model_providers.jembatanai]
+name = <span class="tok-str">"Develop &amp; Hack_With_Ai"</span>
+base_url = <span class="tok-str">"https://freeai.jembatanai.com/v1"</span>
+env_key = <span class="tok-str">"OPENAI_API_KEY"</span>
+wire_api = <span class="tok-str">"responses"</span></code></pre>
+                  <div class="code-foot">
+                    Then <code class="mono">export OPENAI_API_KEY="sk-..."</code> and run
+                    <code class="mono">codex</code>. Codex refuses a provider without
+                    <code class="mono">wire_api = "responses"</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div role="tabpanel" id="panel-cursor" aria-labelledby="tab-cursor" tabindex="0" hidden>
+                <p>Cursor uses the OpenAI format through its own API key settings.</p>
+                <ol class="steps">
+                  <li>
+                    <strong>Open the model settings</strong> — Cursor Settings, then Models.
+                  </li>
+                  <li>
+                    <strong>Enter the key and base URL</strong> — put your
+                    <code class="mono">sk-</code> key in OpenAI API Key, turn on Override OpenAI
+                    Base URL, and enter <code class="mono">https://freeai.jembatanai.com/v1</code>.
+                  </li>
+                  <li>
+                    <strong>Add a model</strong> — add an id from the catalogue, for example
+                    <code class="mono">anthropic/claude-sonnet-5</code>, then pick that model in chat.
+                  </li>
+                </ol>
+              </div>
+
+              <div role="tabpanel" id="panel-cline" aria-labelledby="tab-cline" tabindex="0" hidden>
+                <p>Cline uses the OpenAI Compatible provider.</p>
+                <ol class="steps">
+                  <li>
+                    <strong>Choose the provider</strong> — in the Cline settings, set API Provider
+                    to OpenAI Compatible.
+                  </li>
+                  <li>
+                    <strong>Enter the base URL and key</strong> — Base URL
+                    <code class="mono">https://freeai.jembatanai.com/v1</code>, and API Key set
+                    to your <code class="mono">sk-</code> key.
+                  </li>
+                  <li>
+                    <strong>Enter the Model ID</strong> — use an id from the catalogue, for example
+                    <code class="mono">anthropic/claude-sonnet-5</code>.
+                  </li>
+                </ol>
+              </div>
+
+              <div role="tabpanel" id="panel-opencode" aria-labelledby="tab-opencode" tabindex="0" hidden>
+                <p>
+                  OpenCode takes an OpenAI-compatible provider through
+                  <code class="mono">opencode.json</code> in your project folder or in
+                  <code class="mono">~/.config/opencode/</code>. Set your key in
+                  <code class="mono">JEMBATANAI_API_KEY</code>, then choose a model with the command
+                  <code class="mono">/models</code>.
+                </p>
+                <div class="code-card">
+                  <div class="code-head">
+                    <span class="code-lang">opencode.json</span>
+                    <button class="code-copy" data-copy="client-opencode" data-copy-label="Copy" data-copied-label="Copied">
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                      <span data-copy-text>Copy</span>
+                    </button>
+                  </div>
+                  <pre class="code-panel" id="client-opencode"><code>{
+  <span class="tok-str">"$schema"</span>: <span class="tok-str">"https://opencode.ai/config.json"</span>,
+  <span class="tok-str">"provider"</span>: {
+    <span class="tok-str">"jembatanai"</span>: {
+      <span class="tok-str">"npm"</span>: <span class="tok-str">"@ai-sdk/openai-compatible"</span>,
+      <span class="tok-str">"name"</span>: <span class="tok-str">"Develop &amp; Hack_With_Ai"</span>,
+      <span class="tok-str">"options"</span>: {
+        <span class="tok-str">"baseURL"</span>: <span class="tok-str">"https://freeai.jembatanai.com/v1"</span>,
+        <span class="tok-str">"apiKey"</span>: <span class="tok-str">"{env:JEMBATANAI_API_KEY}"</span>
+      },
+      <span class="tok-str">"models"</span>: {
+        <span class="tok-str">"anthropic/claude-sonnet-5"</span>: { <span class="tok-str">"name"</span>: <span class="tok-str">"Claude Sonnet 5"</span> }
+      }
+    }
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <div role="tabpanel" id="panel-kilo" aria-labelledby="tab-kilo" tabindex="0" hidden>
+                <p>Kilo Code adds this endpoint as a custom provider in the OpenAI Compatible format.</p>
+                <ol class="steps">
+                  <li>
+                    <strong>Add a provider</strong> — open Settings, then Providers, and choose
+                    Custom provider.
+                  </li>
+                  <li>
+                    <strong>Enter the format, base URL, and key</strong> — Provider API OpenAI
+                    Compatible, Base URL <code class="mono">https://freeai.jembatanai.com/v1</code>,
+                    and API key set to your <code class="mono">sk-</code> key.
+                  </li>
+                  <li>
+                    <strong>Add a model</strong> — use an id from the catalogue, for example
+                    <code class="mono">anthropic/claude-sonnet-5</code>.
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <!-- 4 -->
+            <section class="docs-section" id="models">
+              <p class="eyebrow">04</p>
+              <h2 class="docs-h2">Models and access</h2>
+              <p>
+                Send the full id with its vendor prefix, exactly as returned by
+                <code class="mono">GET /v1/models</code>, for example
+                <code class="mono">anthropic/claude-sonnet-5</code>. Older short ids such as
+                <code class="mono">claude-sonnet-5</code> are still accepted, but these docs use
+                the full id throughout.
+              </p>
+
+              <ul class="price-features mt-md">
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  The eight base models are on every key, the trial included.
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  Max and Ultron open the extension models in the catalogue; so do Token Plan and pay-per-use.
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  The frontier models are on Ultron, and on a pay-per-use balance at per-model dollar rates.
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  Models that accept image input are marked in the catalogue; send the image as the content part <code class="mono">image_url</code>.
+                </li>
+              </ul>
+
+              <p class="mt-md">
+                <a class="btn btn-secondary btn-md" href="models.html">Open the model catalogue</a>
+              </p>
+            </section>
+
+            <!-- 5 -->
+            <section class="docs-section" id="errors">
+              <p class="eyebrow">05</p>
+              <h2 class="docs-h2">Errors</h2>
+              <p>
+                Errors come back in the OpenAI format: an <code class="mono">error</code> object
+                holding <code class="mono">message</code>, <code class="mono">type</code>, and
+                <code class="mono">code</code>. The <code class="mono">code</code> stays stable, so
+                your program should read <code class="mono">code</code>, not the message text.
+              </p>
+
+              <div class="code-card">
+                <div class="code-head">
+                  <span class="code-lang">401 · api_key_missing</span>
+                  <button class="code-copy" data-copy="err-shape" data-copy-label="Copy" data-copied-label="Copied">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                      <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span data-copy-text>Copy</span>
+                  </button>
+                </div>
+                <pre class="code-panel" id="err-shape"><code>{
+  <span class="tok-str">"error"</span>: {
+    <span class="tok-str">"message"</span>: <span class="tok-str">"API key tidak dikirim. Sertakan key ... atau `x-api-key`."</span>,
+    <span class="tok-str">"type"</span>: <span class="tok-str">"invalid_request_error"</span>,
+    <span class="tok-str">"code"</span>: <span class="tok-str">"api_key_missing"</span>
+  }
+}</code></pre>
+              </div>
+
+              <div class="table-wrap mt-lg">
+                <table class="data-table">
+                  <caption>HTTP status, error code, meaning, and what to do.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Status</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Meaning and what to do</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">400</th>
+                      <td><code class="mono">wrong_api_host</code></td>
+                      <td>The request came in through another host. Use <code class="mono">https://freeai.jembatanai.com/v1</code>; your key stays valid.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">401</th>
+                      <td><code class="mono">api_key_missing</code></td>
+                      <td>The <code class="mono">Authorization</code> or <code class="mono">x-api-key</code> header was not sent. Check your client's environment variables.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">401</th>
+                      <td><code class="mono">api_key_not_recognized</code></td>
+                      <td>The key is mistyped, revoked, or was deleted after its term ended. Copy the key again from the bot.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">401 · 403</th>
+                      <td><code class="mono">api_key_expired</code></td>
+                      <td>The term has ended. Renew in the bot to keep the same key, before it is deleted during data cleanup.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">401</th>
+                      <td><code class="mono">api_key_inactive</code></td>
+                      <td>The key is inactive because its token balance ran out, its term ended, or an admin disabled it. Top up or renew in the bot.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">402</th>
+                      <td><code class="mono">payment_required</code></td>
+                      <td>The order is not fully paid yet. The key activates automatically once it is.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">403</th>
+                      <td><code class="mono">store_model_not_allowed</code></td>
+                      <td>A model this key is not entitled to, for example a plan model on a trial key, or an id that is not in the catalogue. Check <code class="mono">GET /v1/models</code>.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">403</th>
+                      <td><code class="mono">donor_model_not_allowed</code></td>
+                      <td>A frontier model on a key that is neither Ultron nor pay-per-use. Buy Ultron or a pay-per-use balance in the bot.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">403</th>
+                      <td><code class="mono">store_credit_exhausted</code></td>
+                      <td>The Token Plan balance ran out. Buy another Token Plan in the bot; the same key is active again at once.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">402</th>
+                      <td><code class="mono">payg_balance_empty</code></td>
+                      <td>The pay-per-use balance ran out. Top up in the bot; the same key works again at once.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">403</th>
+                      <td><code class="mono">api_key_suspended</code></td>
+                      <td>The key is suspended or revoked. Send an appeal with the first 8 characters of your key.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">429</th>
+                      <td><code class="mono">rpm_limit_exceeded</code></td>
+                      <td>A trial or older key hit its rate limit; the Pro, Max and Ultron plans have no rate limit. Wait for <code class="mono">retry_after_seconds</code> or the header <code class="mono">Retry-After</code>, then retry.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">429</th>
+                      <td>Too many concurrent requests</td>
+                      <td>Every parallel session on this key is busy and the queue timed out. Wait for the <code class="mono">Retry-After</code>.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">503</th>
+                      <td><code class="mono">key_lookup_failed</code></td>
+                      <td>A temporary fault while checking the key. Retry in a few seconds.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5xx</th>
+                      <td>Others</td>
+                      <td>A fault on the service side. Retry with a growing delay, and check the status page.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 class="docs-h3">The most common problems</h3>
+              <div class="faq">
+                <details class="acc">
+                  <summary>Claude Code gets a 403 straight away.</summary>
+                  <div class="acc-body">
+                    Set <code class="mono">ANTHROPIC_MODEL</code> to an id from the catalogue.
+                  </div>
+                </details>
+                <details class="acc">
+                  <summary>A 404 or an HTML page comes back.</summary>
+                  <div class="acc-body">
+                    The base URL is wrong: the OpenAI format needs <code class="mono">/v1</code>
+                    at the end, the Anthropic SDK does not.
+                  </div>
+                </details>
+                <details class="acc">
+                  <summary>Codex refuses to read its configuration.</summary>
+                  <div class="acc-body">
+                    Codex only accepts <code class="mono">wire_api = "responses"</code>.
+                  </div>
+                </details>
+                <details class="acc">
+                  <summary>A model you bought is not open yet.</summary>
+                  <div class="acc-body">
+                    Check <code class="mono">GET /v1/models</code> with the same key; that list is
+                    what the access gate uses.
+                  </div>
+                </details>
+              </div>
+            </section>
+
+            <!-- 6 -->
+            <section class="docs-section" id="quota">
+              <p class="eyebrow">06</p>
+              <h2 class="docs-h2">Check balance and validity</h2>
+              <p>
+                <code class="mono">GET /v1/quota</code> answers about the key that sends it and
+                nothing else, with no other parameter. It carries: <code class="mono">status</code>
+                and plan, validity, the token or dollar balance left, usage today, over the last 7
+                days and over the last 30 days, and a <code class="mono">warn</code> or
+                <code class="mono">throttle</code> flag.
+              </p>
+
+              <div class="code-card">
+                <div class="code-head">
+                  <span class="code-lang">curl</span>
+                  <button class="code-copy" data-copy="quota-curl" data-copy-label="Copy" data-copied-label="Copied">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <rect x="5.5" y="5.5" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.5" />
+                      <path d="M10.5 3.5A1.5 1.5 0 0 0 9 2H4a2 2 0 0 0-2 2v5a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span data-copy-text>Copy</span>
+                  </button>
+                </div>
+                <pre class="code-panel" id="quota-curl"><code><span class="tok-key">curl</span> https://freeai.jembatanai.com/v1/quota \
+  -H <span class="tok-str">"Authorization: Bearer sk-..."</span>
+
+<span class="tok-com"># example response, shortened</span>
+{
+  <span class="tok-str">"object"</span>: <span class="tok-str">"quota"</span>,
+  <span class="tok-str">"key"</span>: <span class="tok-str">"sk-xxxxx...xxxx"</span>,
+  <span class="tok-str">"status"</span>: <span class="tok-str">"active"</span>,
+  <span class="tok-str">"plan"</span>: <span class="tok-str">"monthly"</span>,
+  <span class="tok-str">"valid_until"</span>: <span class="tok-str">"2026-12-11T00:00:00Z"</span>,
+  <span class="tok-str">"balance"</span>: { <span class="tok-str">"tokens_left"</span>: <span class="tok-num">482000</span> },
+  <span class="tok-str">"usage"</span>: { <span class="tok-str">"today"</span>: <span class="tok-num">18000</span>, <span class="tok-str">"last_7_days"</span>: <span class="tok-num">64000</span> }
+}</code></pre>
+              </div>
+            </section>
+
+            <!-- 7 -->
+            <section class="docs-section" id="buying">
+              <p class="eyebrow">07</p>
+              <h2 class="docs-h2">Buying and renewing</h2>
+              <p>There are two ways to buy, and both end in the Telegram bot that sends your key.</p>
+
+              <div class="card-grid mt-md">
+                <article class="card">
+                  <h3>Website checkout</h3>
+                  <p>
+                    Pick a plan, then contact us on Telegram to pay. We accept all payment methods
+                    as well as crypto. The key arrives in Telegram as soon as payment is confirmed.
+                  </p>
+                  <a class="text-link" href="checkout.html">Open checkout</a>
+                </article>
+                <article class="card">
+                  <h3>Telegram bot</h3>
+                  <p>
+                    Pick a plan in the bot menu and pay there. Renewals, level changes, extra Token
+                    Plans, pay-per-use top-ups and the free 500K-token trial are in the bot too.
+                  </p>
+                  <a class="text-link" href="https://t.me/developnhackwithai" rel="noopener">Open @developnhackwithai</a>
+                </article>
+              </div>
+
+              <p class="mt-lg">
+                A renewal keeps the same key, so your client configuration does not change. Every
+                plan's price is on the <a class="text-link" href="pricing.html">Plans page</a>.
+              </p>
+            </section>
+
+            <!-- 8 -->
+            <section class="docs-section" id="support">
+              <p class="eyebrow">08</p>
+              <h2 class="docs-h2">Support</h2>
+              <p>
+                When you ask, include the error code and the first 8 characters of your key. Never
+                send your full key to anyone.
+              </p>
+              <ul class="price-features mt-md">
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  <span>
+                    <a class="text-link" href="https://t.me/developnhackwithai" rel="noopener">Ask support on Telegram</a>
+                    for key and payment problems.
+                  </span>
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  <span>
+                    <a class="text-link" href="https://t.me/developnhackwithai" rel="noopener">Discussion group</a>
+                    for setup questions answered by other users.
+                  </span>
+                </li>
+                <li>
+                  <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
+                  </svg>
+                  <span>
+                    <a class="text-link" href="https://t.me/developnhackwithai" rel="noopener">Announcements channel</a>
+                    for announcements and incident news.
+                  </span>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <div class="cta-band">
+            <div class="cta-inner">
+              <h2 class="cta-title">Pay and buy on Telegram.</h2>
+              <p>We accept all payment methods as well as crypto.</p>
+              <div class="cta-inline">
+                <a class="btn btn-primary btn-lg" href="https://t.me/developnhackwithai" rel="noopener">Open @developnhackwithai</a>
+                <a class="btn btn-secondary btn-lg" href="pricing.html">See plans</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              Develop &amp; Hack_With_Ai
+            </a>
+            <p>AI Gateway for Developers. One API key for the OpenAI and Anthropic formats.
+              Pay with any method, crypto included.</p>
+            <div class="nav-prefs">
+              <button class="pref-btn" data-currency-toggle aria-label="Show prices in IDR">
+                <span data-currency-label>USD</span>
+              </button>
+              <button class="pref-btn" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h2>Product</h2>
+            <ul>
+              <li><a href="pricing.html">Plans</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+              <li><a href="models.html">Models</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+              <li><a href="guides.html">Guides</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="contact.html">Contact and address</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Community</h2>
+            <ul>
+              <li><a href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Ordering bot</a></li>
+              <li><a href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Announcements channel</a></li>
+              <li><a href="https://t.me/developnhackwithai" target="_blank" rel="noopener noreferrer">Discussion group</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="refund.html">Refund</a></li>
+              <li><a href="shipping.html">Shipping</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span data-year>2026</span> Develop &amp; Hack_With_Ai. We accept all payment methods as well as crypto.</span>
+          <span class="endpoint">freeai.jembatanai.com/v1</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

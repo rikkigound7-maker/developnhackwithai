@@ -1,0 +1,15 @@
+# Pretty paths for the pages that have one obvious name.
+/pricing      /pricing.html      200
+/models       /models.html       200
+/docs         /docs.html         200
+/checkout     /checkout.html     200
+/guides       /guides.html       200
+/contact      /contact.html      200
+/terms        /terms.html        200
+/privacy      /privacy.html      200
+/refund       /refund.html       200
+/shipping     /shipping.html     200
+/home         /index.html        200
+
+# Anything else is a real 404, rendered by 404.html.
+/*            /404.html          404

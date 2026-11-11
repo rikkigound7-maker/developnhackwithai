@@ -8,7 +8,14 @@ onto Netlify.
 The layout, copy, prices and model list mirror the reference gateway this was built against. The
 brand, Telegram handle and API host are the only things changed.
 
+**Live:** <https://rikkigound7-maker.github.io/developnhackwithai/> — served straight from this
+repository's `main` branch by GitHub Pages, no build step.
+
 ## Deploy
+
+**GitHub Pages.** This repo already publishes from `main` / root. Push to `main` and the site
+rebuilds itself. Every link is relative (`pricing.html`, `assets/styles.css`), so it works both at
+the domain root and under the `/developnhackwithai/` subpath.
 
 **Drag and drop.** Zip this folder (or drag it directly) onto <https://app.netlify.com/drop>.
 `netlify.toml`, `_redirects` and `404.html` are already in place, so pretty paths like `/pricing`

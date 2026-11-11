@@ -15,7 +15,143 @@
   var STORAGE = {
     theme: "conduit.theme",
     currency: "conduit.currency",
+    tos: "conduit.tos",
   };
+
+  // Terms gate version. Bump when the terms change so every visitor sees
+  // the gate again. TOS_SECTIONS is the full document shown in the dialog.
+  var TOS_VERSION = "4.1";
+  var TOS_SECTIONS = [
+    {
+      h: "1. LICENCE: ONE KEY, ONE PERSON",
+      body: [
+        ["li", "Every subscription key (Pro, Max, Ultron) is a personal licence for 1 (one) human user."],
+        ["li", "A Token Plan and a pay-per-use balance may be shared, because both are metered per token."],
+        ["li", "You may use it on your own personal devices (home PC, office PC, laptop, phone) and in any coding client."],
+        ["li", "The key is a secret. A leaked key, and every request made with it, remains the key holder responsibility."],
+      ],
+    },
+    {
+      h: "2. PERSONAL GATEWAYS ARE FULLY ALLOWED",
+      body: [
+        ["li", "Running the key through 9Router, LiteLLM, One-API or any similar gateway on your own device or network is 100 percent allowed."],
+        ["li", "What is forbidden is running a subscription key on a multi-tenant gateway serving more than one person, sharing it, or reselling it."],
+      ],
+    },
+    {
+      h: "3. PROHIBITED CONDUCT",
+      body: [
+        ["li", "Sharing, renting or reselling access to a subscription key without an official Partner licence."],
+        ["li", "Installing a subscription key on a public proxy, a reseller VPS, or any shared service that serves multiple users."],
+        ["li", "Mass automation that harms infrastructure stability, including a broken script retrying without end."],
+        ["li", "Using the service for unlawful purposes. You are responsible for everything you send and everything the model returns."],
+        ["li", "Probing, mapping or reverse engineering our systems, quotas and billing mechanisms."],
+        ["li", "Sending data you are not entitled to send, including other people personal data or data under a confidentiality obligation."],
+        ["li", "Presenting yourself as Develop & Hack_With_Ai, or implying an official relationship with us, without a Partner licence."],
+      ],
+    },
+    {
+      h: "4. THE SERVICE IS PROVIDED AS IS",
+      body: [
+        ["li", "Develop & Hack_With_Ai is a gateway to third-party model providers. We do not own, control or guarantee the models behind it."],
+        ["li", "There is no uptime guarantee, no SLA, no promised speed, and no guarantee that any particular model stays available."],
+        ["li", "The model catalogue, routing, capacity and output quality may change at any time without notice, including a model being withdrawn or paused by the upstream provider."],
+        ["li", "Outages, errors, queueing, slowness, streams cut mid-answer and maintenance are normal risks of a gateway service."],
+        ["li", "Do not rely on this service alone for systems that must not fail, such as life-safety, medical or critical financial systems."],
+        ["li", "Your request may be routed to backup capacity at any time so that it still gets answered. No specific path is guaranteed."],
+        ["li", "Model output is generated automatically and can be wrong. Verify it yourself before use; the risk of relying on output is yours."],
+        ["li", "We may limit, maintain, slow down or discontinue the service at any time, including without notice. Unused remaining time is not converted into money."],
+      ],
+    },
+    {
+      h: "5. NO REFUNDS (READ THIS SECTION)",
+      body: [
+        ["li", "All purchases are FINAL. Cancellation, exchange for money and refunds, whether full, partial or pro rata, do not apply once a key or balance has been delivered."],
+        ["li", "DISRUPTIONS ARE NOT REFUNDABLE. Downtime, errors, failed connections, truncated answers, slowness, queueing, timeouts and maintenance create no right to a refund, compensation, credit or extension of time. A service that stops completely or permanently creates no such right either."],
+        ["li", "UPSTREAM CHANGES ARE NOT REFUNDABLE. A model being withdrawn, paused, replaced, or changing in quality, speed or capacity is not a ground for a refund."],
+        ["li", "FAIR-USE ENFORCEMENT IS NOT REFUNDABLE. RPM pacing, parallel-session queueing and the limits of a trial or legacy key are the published behaviour of the service, not a defective product."],
+        ["li", "NOT REFUNDABLE: unused remaining subscription time, leftover tokens, a lapsed Token Plan, Custom Token or Custom Token Premium, an expired key, a key you rarely used, a wrong purchase after the key has been used, and a change of mind."],
+        ["li", "A key revoked for breaching these terms receives neither a refund nor a replacement key."],
+        ["li", "Partner balance, wholesale key batches and any add-on already activated cannot be converted back into money either."],
+        ["li", "ONLY THE THREE CASES BELOW ARE CORRECTED. Two of them are settled with a PRODUCT rather than money, and none of them is compensation for a disruption."],
+        ["li", "First, a double payment for the same order: the extra payment is returned."],
+        ["li", "Second, payment received but the product was never delivered: we deliver the product. If that product no longer exists, we substitute another product or a credit of equal value."],
+        ["li", "Third, the wrong product was delivered and has not been used at all: we swap it for the correct one."],
+        ["p", "File any of the three through our Telegram support within 7 days of the payment date, with proof of payment and the order number. After that window a request is not processed."],
+        ["li", "The remedy is chosen by Develop & Hack_With_Ai: delivery of the product, a replacement product, or a credit of equal value. Money moves in one case only, the excess of a double payment."],
+        ["p", "For the excess of a double payment: payment-gateway fees, transfer costs and exchange-rate differences are not returned; the return is paid in rupiah to the original payment method."],
+        ["p", "A crypto payment sent to the wrong network, the wrong address, in the wrong amount, or without a verifiable transaction proof cannot be recovered and is not refunded."],
+        ["p", "Every request is reviewed manually and the Develop & Hack_With_Ai decision is final."],
+        ["p", "Reversing a payment through your bank or payment provider results in permanent revocation without refund and a block from every service."],
+      ],
+    },
+    {
+      h: "6. FAIR USE",
+      body: [
+        ["li", "A subscription has no token limit. Its limits are the RPM, the same for every level, and the parallel sessions, which differ per level (Pro, Max, Ultron); both are published on the Plans page."],
+        ["li", "A request past the RPM is held and one past the parallel sessions is queued, and refused only if the wait runs too long. Heavy use never revokes a key."],
+        ["li", "RPM and sessions can be added per key through our Telegram until the key's period ends."],
+        ["li", "A Token Plan, Custom Token or Custom Token Premium lapses 30 days after delivery; its unused tokens lapse with it. A pay-per-use balance never expires."],
+        ["li", "Since version 4.0, the RPM limit applies to every live subscription key; rotating a key does not reset its RPM or sessions."],
+      ],
+    },
+    {
+      h: "7. REVOCATION AND APPEALS",
+      body: [
+        ["li", "We monitor server traffic telemetry to protect honest users. The monitoring method is confidential."],
+        ["li", "A key proven to be multi-tenant or resold without a Partner licence is revoked instantly and without refund."],
+        ["li", "We may suspend a key while an investigation is under way, without prior notice, where abuse is indicated."],
+        ["li", "Believe a revocation was wrong? File an appeal through our Telegram support. An accepted appeal reactivates the key automatically; a rejection is final and states its reason."],
+        ["li", "Time lost while a key is suspended or under review is not replaced, not extended and creates no compensation, including where the appeal succeeds."],
+      ],
+    },
+    {
+      h: "8. PARTNERS AND RESELLING",
+      body: [
+        ["li", "Reselling is allowed only as an official Partner through our Telegram. Partner status begins when the first payment clears."],
+        ["li", "A Partner is fully responsible for their own customers, including support, billing, any promise the Partner makes, and their compliance with these terms."],
+        ["li", "A Partner indemnifies Develop & Hack_With_Ai against claims by the Partner customers. Those customers are not parties to this agreement and have no direct claim against us."],
+        ["li", "Wholesale prices, discount levels and partnership conditions may change at any time for subsequent purchases."],
+        ["li", "Partner balance can only be spent on Develop & Hack_With_Ai products, bears no interest, is not transferable, and cannot be withdrawn as cash."],
+      ],
+    },
+    {
+      h: "9. DATA AND PRIVACY",
+      body: [
+        ["li", "We store the usage metadata required for billing, quota and abuse prevention, such as timestamps, token counts, model and technical connection signals."],
+        ["p", "A purchase asks for billing details: your name, email, phone number and billing address. They are passed to the payment processor to process and verify the payment, stored with the order as the transaction record, and used to contact you about the order. They are never used for advertising."],
+        ["p", "Card details are entered on the payment provider's page, never pass through our servers, and are not stored by us."],
+        ["p", "Requests to access, correct or delete personal data can be sent through our Telegram support. Data we are still required to keep for billing and compliance is kept for as long as that obligation lasts."],
+        ["p", "Conversation content is forwarded to third-party model providers so that your request can be answered, and is subject to those providers policies. We do not guarantee confidentiality on their side."],
+        ["p", "The free tier relays requests through upstream infrastructure and accounts that are not ours and not an official provider path. Upstream may treat this pattern as a third-party client, with the risk of disruption, throttling, or seat account bans that affect the service."],
+        ["p", "To keep the service free, conversation text is used to pick ads through these three recipients and no others. One, gravity as the ad auction provider. Two, zeroclick.dev as the third-party impression recorder. Three, our first party path at api ads for creatives we serve ourselves."],
+        ["p", "Only user and assistant conversation text is sent for the ad auction. System instruction turns are dropped, and tool calls, tool names and images never ride along. Device data in the form of operating system, timezone and locale travels with it, together with the user agent marker."],
+        ["p", "Since 2026-10-04 the ad auction also carries client context as categories, never raw numbers. It has seven parts. One, the machine that runs your request, as categories for operating system version, architecture, memory range, uptime range, load level, free memory, core count, processor family and free disk range. Two, the network, as the duration range of the previous ad request and how many of them failed. Three, the application, as process uptime range, install age range, release channel, install method and runtime version. Four, the primary interface language. Five, the session, as the range of your conversation turn number, the range of ads already shown, and the time range since the last ad or click. Six, the agent, as the agent root name, the upstream model, the reasoning level and the mode. Seven, the work, as the range of your queue position, the CATEGORY of the last tool the agent used, the CLASS of the last error, and the range of failed turns in the past hour. Those categories and classes are computed on our side from your own conversation: the tool name and the error text are NEVER sent, only the category. No terminal size, no typing rhythm, no command text and no raw value of any kind is sent. Advertisers use all of it only as ad selection features; it decides nothing about your billing, quota or eligibility."],
+        ["p", "The ad auction runs only while the customer portal tab is visible and the ad card is on your screen. A view is recorded once per creative only when the card actually enters the viewport, and a click only when you click the ad. With no visible slot, there is no auction."],
+        ["p", "A declined telemetry event is not a declined ad. Inline ad slot events in our telemetry are declined and never sent because they have no trigger here, while the ad auction request on the ads rail is still sent under the trigger above. The two are recorded separately."],
+        ["p", "Sponsored runs are never executed. Where an ad carries an advertiser authored procedure, we block its execution on our side until a sandbox and a buyer consent flow exist. Accepting an offer at the protocol level runs nothing on your device or your data."],
+        ["p", "We do not sell customer data. Data may be disclosed where required by applicable law, and is retained for as long as billing, abuse prevention and compliance require."],
+        ["li", "Develop & Hack_With_Ai server records are the binding evidence of usage, quota, timing and order status in the event of a disagreement."],
+      ],
+    },
+    {
+      h: "10. CHANGES, FORCE MAJEURE AND LAW",
+      body: [
+        ["li", "Prices, plans, the model catalogue and these terms may change at any time. The version shown on the Terms page is the one in force."],
+        ["li", "Continuing to use the service after a change means you accept the new terms."],
+        ["li", "We are not liable for failures caused by events beyond our control, including upstream provider outages, network failures, power cuts, third-party policy changes, government action and disasters."],
+        ["li", "Develop & Hack_With_Ai is not liable for indirect loss of any kind: lost profit, lost data, business interruption, the cost of a substitute service, or loss arising from model output."],
+        ["li", "Our maximum liability for all claims combined does not exceed the amount you paid for the product concerned in the last 30 days."],
+        ["li", "The buyer confirms they are legally capable of entering this agreement. Any tax or levy on the buyer side is the buyer responsibility."],
+        ["li", "A notice sent to the Telegram account used to purchase is deemed received. Keeping access to that account is your responsibility."],
+        ["li", "You may not transfer this licence without our written consent. We may assign this agreement if the service changes hands."],
+        ["li", "If any provision here is held invalid, the rest remains in full force. Not enforcing a right on one occasion is not a waiver of it."],
+        ["li", "These terms are governed by the law of the Republic of Indonesia. Disputes are settled amicably first."],
+        ["li", "The Indonesian version is the binding one; any other language is provided for convenience."],
+        ["li", "By buying or using a Develop & Hack_With_Ai key you confirm that you have read, understood and accepted all of the above."],
+      ],
+    },
+  ];
 
   /* ── Helpers ───────────────────────────────────────────────────────────── */
 
@@ -517,7 +653,100 @@
 
   /* ── Boot ──────────────────────────────────────────────────────────────── */
 
+  /* ── Terms gate ────────────────────────────────────────────────────────── */
+
+  // Scrollable terms dialog shown until the visitor accepts the current
+  // version. Acceptance is remembered per device; bump TOS_VERSION to show
+  // the gate again to everyone. Built with createElement and textContent
+  // only, so the CSP needs no inline-script hash for it.
+  function initTosGate() {
+    if (store(STORAGE.tos) === TOS_VERSION) return;
+
+    function el(tag, className, text) {
+      var node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    var gate = el("div", "tos-gate");
+    gate.setAttribute("role", "dialog");
+    gate.setAttribute("aria-modal", "true");
+    gate.setAttribute("aria-labelledby", "tos-gate-title");
+
+    var card = el("div", "tos-gate-card");
+    var head = el("div", "tos-gate-head");
+    head.appendChild(el("p", "tos-gate-eyebrow", "Develop & Hack_With_Ai"));
+    var title = el("h2", "tos-gate-title", "Terms of Service and Refund Policy");
+    title.id = "tos-gate-title";
+    head.appendChild(title);
+    head.appendChild(
+      el("p", "tos-gate-version", "Version 4.1 · effective 2026-11-05")
+    );
+    head.appendChild(
+      el(
+        "p",
+        "tos-gate-short",
+        "In short: purchases are final and a service disruption is not refundable."
+      )
+    );
+
+    var scroll = el("div", "tos-gate-scroll");
+    TOS_SECTIONS.forEach(function (section) {
+      scroll.appendChild(el("h3", "tos-gate-h", section.h));
+      section.body.forEach(function (item) {
+        var last = scroll.lastElementChild;
+        if (item[0] === "li") {
+          if (!last || !last.classList.contains("tos-gate-list")) {
+            last = el("ul", "tos-gate-list");
+            scroll.appendChild(last);
+          }
+          last.appendChild(el("li", null, item[1]));
+        } else {
+          scroll.appendChild(el("p", "tos-gate-p", item[1]));
+        }
+      });
+    });
+
+    var foot = el("div", "tos-gate-foot");
+    var notice = el(
+      "p",
+      "tos-gate-notice",
+      "You must accept the Terms of Service to enter the site."
+    );
+    notice.setAttribute("aria-live", "polite");
+    var actions = el("div", "tos-gate-actions");
+    var agree = el("button", "btn btn-primary btn-md", "I Agree — Enter the site");
+    agree.type = "button";
+    var decline = el("button", "btn btn-secondary btn-md", "Decline");
+    decline.type = "button";
+    actions.appendChild(agree);
+    actions.appendChild(decline);
+    foot.appendChild(notice);
+    foot.appendChild(actions);
+
+    card.appendChild(head);
+    card.appendChild(scroll);
+    card.appendChild(foot);
+    gate.appendChild(card);
+
+    agree.addEventListener("click", function () {
+      store(STORAGE.tos, TOS_VERSION);
+      document.body.classList.remove("tos-locked");
+      gate.remove();
+    });
+    decline.addEventListener("click", function () {
+      notice.setAttribute("data-shown", "true");
+      agree.focus();
+    });
+
+    document.body.appendChild(gate);
+    document.body.classList.add("tos-locked");
+    agree.focus();
+  }
+
   function boot() {
+    initTosGate();
     initTheme();
     initCurrency();
     initNav();

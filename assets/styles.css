@@ -2883,3 +2883,157 @@ button {
 .card .text-link {
   margin-top: auto;
 }
+
+/* ── 23. Terms gate ─────────────────────────────────────────────────────── */
+.tos-locked {
+  overflow: hidden;
+}
+
+.tos-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(22, 20, 43, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.tos-gate-card {
+  display: flex;
+  flex-direction: column;
+  width: min(760px, 100%);
+  max-height: min(88vh, 900px);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(22, 20, 43, 0.35);
+  overflow: hidden;
+}
+
+.tos-gate-head {
+  padding: 26px 32px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tos-gate-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tos-gate-title {
+  margin: 6px 0 4px;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.tos-gate-version {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.tos-gate-short {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--coral-soft);
+  border: 1px solid var(--amber-line);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tos-gate-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 32px 26px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tos-gate-h {
+  margin: 18px 0 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.tos-gate-scroll > .tos-gate-h:first-child {
+  margin-top: 0;
+}
+
+.tos-gate-list {
+  display: grid;
+  gap: 7px;
+  margin: 0 0 10px;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tos-gate-p {
+  margin: 0 0 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tos-gate-foot {
+  padding: 18px 32px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+
+.tos-gate-notice {
+  display: none;
+  margin: 0 0 12px;
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tos-gate-notice[data-shown="true"] {
+  display: block;
+}
+
+.tos-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 520px) {
+  .tos-gate {
+    padding: 12px;
+  }
+
+  .tos-gate-card {
+    max-height: 94vh;
+    border-radius: var(--radius-md);
+  }
+
+  .tos-gate-head,
+  .tos-gate-scroll,
+  .tos-gate-foot {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .tos-gate-actions {
+    flex-direction: column;
+  }
+
+  .tos-gate-actions .btn {
+    width: 100%;
+  }
+}

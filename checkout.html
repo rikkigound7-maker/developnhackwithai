@@ -345,18 +345,46 @@
               </div>
 
               <div class="summary-total">
-                <span class="label">Total</span>
+                <span class="label">Order total</span>
                 <span class="value" data-summary-total data-price="40">$40</span>
               </div>
 
-              <a class="btn btn-primary btn-md btn-block" href="https://t.me/developnhackwithai" rel="noopener">
-                Open @developnhackwithai
+              <p class="summary-note summary-note-total">
+                <span data-total-note>Total in US dollars, with no shipping cost and no extra
+                fee from Develop &amp; Hack_With_Ai. For QRIS, e-wallet, virtual account and
+                credit card, the payment processor may add a payment-channel fee. That fee is
+                shown on the payment page before you pay.</span>
+                <a href="shipping.html">Shipping policy</a>
+              </p>
+
+              <div class="consent">
+                <label class="consent-check">
+                  <input type="checkbox" data-tos-consent />
+                  <span>
+                    I have read and agree to the
+                    <a href="terms.html" data-tos-open>Terms of Service</a> and the
+                    <a href="refund.html" data-tos-open>Refund policy</a>.
+                  </span>
+                </label>
+                <p class="consent-version">Terms version <span data-tos-version>4.1</span></p>
+              </div>
+
+              <a
+                class="btn btn-primary btn-md btn-block is-disabled"
+                data-place-order
+                href="https://t.me/developnhackwithai"
+                rel="noopener"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                Place order <span aria-hidden="true">→</span>
               </a>
               <a class="btn btn-secondary btn-md btn-block mt-md" href="pricing.html">Compare plans</a>
 
               <p class="summary-note">
-                Shipping cost $0. This is a digital product: an API key delivered in Telegram.
-                Confirm the amount with the bot before paying.
+                The key is delivered automatically in Telegram once the payment is confirmed.
+                This is a digital product: there is nothing to ship. Confirm the amount with the
+                bot before paying.
               </p>
             </aside>
           </form>

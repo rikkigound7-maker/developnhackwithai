@@ -653,14 +653,67 @@
 
   /* ── Boot ──────────────────────────────────────────────────────────────── */
 
-  /* ── Terms gate ────────────────────────────────────────────────────────── */
+  /* ── Terms dialog and checkout consent ────────────────────────────────── */
 
-  // Scrollable terms dialog shown until the visitor accepts the current
-  // version. Acceptance is remembered per device; bump TOS_VERSION to show
-  // the gate again to everyone. Built with createElement and textContent
-  // only, so the CSP needs no inline-script hash for it.
-  function initTosGate() {
-    if (store(STORAGE.tos) === TOS_VERSION) return;
+  // Nothing opens on its own: the document is shown only when the visitor asks
+  // for it, from the checkout consent line or any element carrying
+  // data-tos-open. Every node is built with createElement and textContent, so
+  // the CSP needs no inline-script hash for it.
+  var TOTAL_NOTES = {
+    IDR: "Total in rupiah, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For QRIS, e-wallet, virtual account and credit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
+    USD: "Total in US dollars, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For QRIS, e-wallet, virtual account and credit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
+  };
+
+  var tosDialog = null;
+  var tosLastFocus = null;
+
+  function consentGiven() {
+    return store(STORAGE.tos) === TOS_VERSION;
+  }
+
+  function setConsent(on) {
+    store(STORAGE.tos, on ? TOS_VERSION : "");
+    var box = $("[data-tos-consent]");
+    if (box) box.checked = !!on;
+    syncPlaceOrder();
+  }
+
+  // The order button stays inert until the consent box is ticked, so a visitor
+  // cannot reach the payment step without passing the terms.
+  function syncPlaceOrder() {
+    var box = $("[data-tos-consent]");
+    var button = $("[data-place-order]");
+    if (!button) return;
+    var ready = !!(box && box.checked);
+    button.classList.toggle("is-disabled", !ready);
+    button.setAttribute("aria-disabled", ready ? "false" : "true");
+    if (ready) {
+      button.removeAttribute("tabindex");
+    } else {
+      button.setAttribute("tabindex", "-1");
+    }
+  }
+
+  function renderTotalNote() {
+    var note = $("[data-total-note]");
+    if (!note) return;
+    var currency = window.conduitCurrency === "IDR" ? "IDR" : "USD";
+    note.textContent = TOTAL_NOTES[currency];
+  }
+
+  function closeTosDialog() {
+    if (!tosDialog) return;
+    tosDialog.remove();
+    tosDialog = null;
+    document.body.classList.remove("tos-locked");
+    if (tosLastFocus && document.body.contains(tosLastFocus)) {
+      tosLastFocus.focus();
+    }
+    tosLastFocus = null;
+  }
+
+  function openTosDialog(trigger) {
+    if (tosDialog) return;
 
     function el(tag, className, text) {
       var node = document.createElement(tag);
@@ -669,20 +722,32 @@
       return node;
     }
 
+    tosLastFocus = trigger || document.activeElement;
+
     var gate = el("div", "tos-gate");
     gate.setAttribute("role", "dialog");
     gate.setAttribute("aria-modal", "true");
     gate.setAttribute("aria-labelledby", "tos-gate-title");
 
     var card = el("div", "tos-gate-card");
+
     var head = el("div", "tos-gate-head");
-    head.appendChild(el("p", "tos-gate-eyebrow", "Develop & Hack_With_Ai"));
+    var headTop = el("div", "tos-gate-head-top");
+    var headText = el("div", "tos-gate-head-text");
+    headText.appendChild(el("p", "tos-gate-eyebrow", "Develop & Hack_With_Ai"));
     var title = el("h2", "tos-gate-title", "Terms of Service and Refund Policy");
     title.id = "tos-gate-title";
-    head.appendChild(title);
-    head.appendChild(
-      el("p", "tos-gate-version", "Version 4.1 · effective 2026-11-05")
+    headText.appendChild(title);
+    headText.appendChild(
+      el("p", "tos-gate-version", "Version " + TOS_VERSION + " · effective 2026-11-05")
     );
+    headTop.appendChild(headText);
+
+    var closeX = el("button", "tos-gate-close", "\u00d7");
+    closeX.type = "button";
+    closeX.setAttribute("aria-label", "Close the terms");
+    headTop.appendChild(closeX);
+    head.appendChild(headTop);
     head.appendChild(
       el(
         "p",
@@ -709,44 +774,84 @@
     });
 
     var foot = el("div", "tos-gate-foot");
-    var notice = el(
-      "p",
-      "tos-gate-notice",
-      "You must accept the Terms of Service to enter the site."
-    );
-    notice.setAttribute("aria-live", "polite");
-    var actions = el("div", "tos-gate-actions");
-    var agree = el("button", "btn btn-primary btn-md", "I Agree — Enter the site");
+    var close = el("button", "btn btn-secondary btn-sm", "Close");
+    close.type = "button";
+    var agree = el("button", "btn btn-primary btn-sm", "I Agree");
     agree.type = "button";
-    var decline = el("button", "btn btn-secondary btn-md", "Decline");
-    decline.type = "button";
-    actions.appendChild(agree);
-    actions.appendChild(decline);
-    foot.appendChild(notice);
-    foot.appendChild(actions);
+    foot.appendChild(close);
+    foot.appendChild(agree);
 
     card.appendChild(head);
     card.appendChild(scroll);
     card.appendChild(foot);
     gate.appendChild(card);
 
+    close.addEventListener("click", closeTosDialog);
+    closeX.addEventListener("click", closeTosDialog);
     agree.addEventListener("click", function () {
-      store(STORAGE.tos, TOS_VERSION);
-      document.body.classList.remove("tos-locked");
-      gate.remove();
+      setConsent(true);
+      closeTosDialog();
     });
-    decline.addEventListener("click", function () {
-      notice.setAttribute("data-shown", "true");
-      agree.focus();
+    gate.addEventListener("click", function (event) {
+      if (event.target === gate) closeTosDialog();
+    });
+    gate.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeTosDialog();
+      }
     });
 
     document.body.appendChild(gate);
     document.body.classList.add("tos-locked");
-    agree.focus();
+    tosDialog = gate;
+    tosLastFocus = tosLastFocus === document.body ? null : tosLastFocus;
+    close.focus();
+  }
+
+  function initTosDialog() {
+    $$("[data-tos-open]").forEach(function (trigger) {
+      trigger.addEventListener("click", function (event) {
+        // stopPropagation keeps a link nested in the consent label from
+        // toggling the checkbox on its way up.
+        event.preventDefault();
+        event.stopPropagation();
+        openTosDialog(trigger);
+      });
+    });
+  }
+
+  function initConsent() {
+    var box = $("[data-tos-consent]");
+    var button = $("[data-place-order]");
+
+    $$("[data-tos-version]").forEach(function (el) {
+      el.textContent = TOS_VERSION;
+    });
+
+    if (box) {
+      box.checked = consentGiven();
+      box.addEventListener("change", function () {
+        setConsent(box.checked);
+      });
+    }
+
+    if (button) {
+      button.addEventListener("click", function (event) {
+        if (!box || !box.checked) {
+          event.preventDefault();
+          if (box) box.focus();
+        }
+      });
+    }
+
+    document.addEventListener("conduit:currency", renderTotalNote);
+
+    syncPlaceOrder();
+    renderTotalNote();
   }
 
   function boot() {
-    initTosGate();
     initTheme();
     initCurrency();
     initNav();
@@ -755,6 +860,8 @@
     initReveal();
     initCatalogue();
     initCheckout();
+    initConsent();
+    initTosDialog();
     initScrollSpy();
     initYear();
   }

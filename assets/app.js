@@ -12,7 +12,7 @@
   // Fixed display rate for the USD ⇄ INR toggle. Rupees are a convenience on
   // screen only: every order is still charged in dollars, so swap this for a
   // live rate when a backend exists.
-  var INR_PER_USD = 85;
+  var INR_PER_USD = 95;
 
   var STORAGE = {
     theme: "conduit.theme",

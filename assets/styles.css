@@ -3035,7 +3035,7 @@ button {
   min-width: 108px;
 }
 
-/* Checkout: rupiah note, consent line, version stamp, gated order button */
+/* Checkout: total note, consent line, version stamp, gated order button */
 .summary-note-total {
   margin: 0 0 var(--space-md);
   font-size: var(--text-sm);

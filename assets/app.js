@@ -9,12 +9,8 @@
 
   /* ── Config ────────────────────────────────────────────────────────────── */
 
-  // Fixed display rate. Swap for a live rate endpoint when a backend exists.
-  var IDR_PER_USD = 16000;
-
   var STORAGE = {
     theme: "conduit.theme",
-    currency: "conduit.currency",
     tos: "conduit.tos",
   };
 
@@ -79,7 +75,7 @@
         ["li", "Third, the wrong product was delivered and has not been used at all: we swap it for the correct one."],
         ["p", "File any of the three through our Telegram support within 7 days of the payment date, with proof of payment and the order number. After that window a request is not processed."],
         ["li", "The remedy is chosen by Develop & Hack_With_Ai: delivery of the product, a replacement product, or a credit of equal value. Money moves in one case only, the excess of a double payment."],
-        ["p", "For the excess of a double payment: payment-gateway fees, transfer costs and exchange-rate differences are not returned; the return is paid in rupiah to the original payment method."],
+        ["p", "For the excess of a double payment: payment-gateway fees, transfer costs and exchange-rate differences are not returned; the return is paid to the original payment method."],
         ["p", "A payment sent to the wrong UPI ID or the wrong account, in the wrong amount, or without a verifiable transaction reference cannot be recovered and is not refunded."],
         ["p", "Every request is reviewed manually and the Develop & Hack_With_Ai decision is final."],
         ["p", "Reversing a payment through your bank or payment provider results in permanent revocation without refund and a block from every service."],
@@ -182,10 +178,9 @@
     return parts[1] ? whole + "," + parts[1] : whole;
   }
 
-  function formatPrice(amount, currency) {
+  function formatPrice(amount) {
     var value = Number(String(amount).replace(/[^0-9.-]/g, ""));
     if (!isFinite(value)) return String(amount);
-    if (currency === "IDR") return "Rp " + group(Math.round(value * IDR_PER_USD));
     return "$" + group(value);
   }
 
@@ -219,52 +214,6 @@
     });
 
     paint();
-  }
-
-  /* ── Currency ──────────────────────────────────────────────────────────── */
-
-  function initCurrency() {
-    var buttons = $$("[data-currency-toggle]");
-    if (!buttons.length) return;
-
-    var prices = $$("[data-price]");
-    var currency = store(STORAGE.currency) === "IDR" ? "IDR" : "USD";
-
-    function render() {
-      prices.forEach(function (el) {
-        var value = el.getAttribute("data-price");
-        var suffix = el.getAttribute("data-price-suffix");
-        el.textContent = formatPrice(value, currency) + (suffix || "");
-      });
-
-      $$("[data-currency-label]").forEach(function (el) {
-        el.textContent = currency;
-      });
-
-      buttons.forEach(function (btn) {
-        var next = currency === "IDR" ? "USD" : "IDR";
-        btn.setAttribute("aria-label", "Show prices in " + next);
-        btn.setAttribute("title", "Show prices in " + next);
-        btn.setAttribute("data-currency", currency);
-      });
-
-      window.conduitCurrency = currency;
-      document.dispatchEvent(
-        new CustomEvent("conduit:currency", { detail: { currency: currency } })
-      );
-    }
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        currency = currency === "IDR" ? "USD" : "IDR";
-        store(STORAGE.currency, currency);
-        render();
-      });
-    });
-
-    // A live rate would call render() again on its own schedule.
-    window.conduitFormatPrice = formatPrice;
-    render();
   }
 
   /* ── Mobile navigation ─────────────────────────────────────────────────── */
@@ -560,10 +509,6 @@
       total: $("[data-summary-total]", form),
     };
 
-    function currency() {
-      return window.conduitCurrency || (store(STORAGE.currency) === "IDR" ? "IDR" : "USD");
-    }
-
     function render() {
       var product = products.filter(function (input) {
         return input.checked;
@@ -576,9 +521,9 @@
       if (fields.parallel) fields.parallel.textContent = data.parallel || "";
       if (fields.validity) fields.validity.textContent = data.validity || "";
       if (fields.total) {
-        // The total carries data-price so the currency toggle can find it too.
+        // Keep data-price in sync with the chosen product.
         fields.total.setAttribute("data-price", data.amount || "0");
-        fields.total.textContent = formatPrice(data.amount, currency());
+        fields.total.textContent = formatPrice(data.amount);
       }
       form.setAttribute("data-selected", product.value);
     }
@@ -597,7 +542,6 @@
       if (chosen) chosen.checked = true;
     }
 
-    document.addEventListener("conduit:currency", render);
     render();
   }
 
@@ -659,10 +603,8 @@
   // for it, from the checkout consent line or any element carrying
   // data-tos-open. Every node is built with createElement and textContent, so
   // the CSP needs no inline-script hash for it.
-  var TOTAL_NOTES = {
-    IDR: "Total in rupiah, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
-    USD: "Total in US dollars, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
-  };
+  var TOTAL_NOTE =
+    "Total in US dollars, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.";
 
   var tosDialog = null;
   var tosLastFocus = null;
@@ -697,8 +639,7 @@
   function renderTotalNote() {
     var note = $("[data-total-note]");
     if (!note) return;
-    var currency = window.conduitCurrency === "IDR" ? "IDR" : "USD";
-    note.textContent = TOTAL_NOTES[currency];
+    note.textContent = TOTAL_NOTE;
   }
 
   function closeTosDialog() {
@@ -845,15 +786,12 @@
       });
     }
 
-    document.addEventListener("conduit:currency", renderTotalNote);
-
     syncPlaceOrder();
     renderTotalNote();
   }
 
   function boot() {
     initTheme();
-    initCurrency();
     initNav();
     initTabs();
     initCopy();

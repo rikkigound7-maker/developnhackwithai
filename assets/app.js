@@ -9,8 +9,14 @@
 
   /* ── Config ────────────────────────────────────────────────────────────── */
 
+  // Fixed display rate for the USD ⇄ INR toggle. Rupees are a convenience on
+  // screen only: every order is still charged in dollars, so swap this for a
+  // live rate when a backend exists.
+  var INR_PER_USD = 85;
+
   var STORAGE = {
     theme: "conduit.theme",
+    currency: "conduit.currency",
     tos: "conduit.tos",
   };
 
@@ -169,8 +175,8 @@
     return null;
   }
 
-  // 1200 → "1.200" in both currencies: the site follows the reference, which
-  // groups thousands with a dot even in USD. Cents only appear when non-zero.
+  // 1200 → "1.200": the site follows the reference, which groups thousands
+  // with a dot. Cents only appear when non-zero.
   function group(value) {
     var digits = Math.abs(value) % 1 === 0 ? 0 : 2;
     var parts = value.toFixed(digits).split(".");
@@ -178,10 +184,25 @@
     return parts[1] ? whole + "," + parts[1] : whole;
   }
 
-  function formatPrice(amount) {
+  // 102000 → "1,02,000": rupees use lakh/crore grouping, not the three-digit
+  // grouping the dollar figures use.
+  function groupRupees(value) {
+    var whole = String(Math.round(Math.abs(value)));
+    if (whole.length <= 3) return whole;
+    var tail = whole.slice(-3);
+    var head = whole.slice(0, -3).replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+    return head + "," + tail;
+  }
+
+  function formatPrice(amount, currency) {
     var value = Number(String(amount).replace(/[^0-9.-]/g, ""));
     if (!isFinite(value)) return String(amount);
+    if (currency === "INR") return "₹" + groupRupees(value * INR_PER_USD);
     return "$" + group(value);
+  }
+
+  function currentCurrency() {
+    return window.conduitCurrency === "INR" ? "INR" : "USD";
   }
 
   /* ── Theme ─────────────────────────────────────────────────────────────── */
@@ -214,6 +235,50 @@
     });
 
     paint();
+  }
+
+  /* ── Currency ──────────────────────────────────────────────────────────── */
+
+  // The dollar figure is the real price; switching to rupees only changes how
+  // it is displayed. Nothing here touches the order or the Telegram flow.
+  function initCurrency() {
+    var buttons = $$("[data-currency-toggle]");
+    if (!buttons.length) return;
+
+    var prices = $$("[data-price]");
+    var currency = store(STORAGE.currency) === "INR" ? "INR" : "USD";
+
+    function render() {
+      prices.forEach(function (el) {
+        el.textContent = formatPrice(el.getAttribute("data-price"), currency);
+      });
+
+      $$("[data-currency-label]").forEach(function (el) {
+        el.textContent = currency;
+      });
+
+      buttons.forEach(function (btn) {
+        var next = currency === "INR" ? "USD" : "INR";
+        btn.setAttribute("aria-label", "Show prices in " + next);
+        btn.setAttribute("title", "Show prices in " + next);
+        btn.setAttribute("aria-pressed", String(currency === "INR"));
+      });
+
+      window.conduitCurrency = currency;
+      document.dispatchEvent(
+        new CustomEvent("conduit:currency", { detail: { currency: currency } })
+      );
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        currency = currency === "INR" ? "USD" : "INR";
+        store(STORAGE.currency, currency);
+        render();
+      });
+    });
+
+    render();
   }
 
   /* ── Mobile navigation ─────────────────────────────────────────────────── */
@@ -523,7 +588,7 @@
       if (fields.total) {
         // Keep data-price in sync with the chosen product.
         fields.total.setAttribute("data-price", data.amount || "0");
-        fields.total.textContent = formatPrice(data.amount);
+        fields.total.textContent = formatPrice(data.amount, currentCurrency());
       }
       form.setAttribute("data-selected", product.value);
     }
@@ -542,6 +607,7 @@
       if (chosen) chosen.checked = true;
     }
 
+    document.addEventListener("conduit:currency", render);
     render();
   }
 
@@ -603,8 +669,16 @@
   // for it, from the checkout consent line or any element carrying
   // data-tos-open. Every node is built with createElement and textContent, so
   // the CSP needs no inline-script hash for it.
-  var TOTAL_NOTE =
-    "Total in US dollars, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.";
+  var NOTE_TAIL =
+    ", with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.";
+
+  function totalNote(currency) {
+    var head =
+      currency === "INR"
+        ? "Shown in rupees at ₹" + INR_PER_USD + " to the dollar; the order is charged in US dollars"
+        : "Total in US dollars";
+    return head + NOTE_TAIL;
+  }
 
   var tosDialog = null;
   var tosLastFocus = null;
@@ -639,7 +713,7 @@
   function renderTotalNote() {
     var note = $("[data-total-note]");
     if (!note) return;
-    note.textContent = TOTAL_NOTE;
+    note.textContent = totalNote(currentCurrency());
   }
 
   function closeTosDialog() {
@@ -786,12 +860,15 @@
       });
     }
 
+    document.addEventListener("conduit:currency", renderTotalNote);
+
     syncPlaceOrder();
     renderTotalNote();
   }
 
   function boot() {
     initTheme();
+    initCurrency();
     initNav();
     initTabs();
     initCopy();

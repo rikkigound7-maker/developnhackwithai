@@ -80,7 +80,7 @@
         ["p", "File any of the three through our Telegram support within 7 days of the payment date, with proof of payment and the order number. After that window a request is not processed."],
         ["li", "The remedy is chosen by Develop & Hack_With_Ai: delivery of the product, a replacement product, or a credit of equal value. Money moves in one case only, the excess of a double payment."],
         ["p", "For the excess of a double payment: payment-gateway fees, transfer costs and exchange-rate differences are not returned; the return is paid in rupiah to the original payment method."],
-        ["p", "A crypto payment sent to the wrong network, the wrong address, in the wrong amount, or without a verifiable transaction proof cannot be recovered and is not refunded."],
+        ["p", "A payment sent to the wrong UPI ID or the wrong account, in the wrong amount, or without a verifiable transaction reference cannot be recovered and is not refunded."],
         ["p", "Every request is reviewed manually and the Develop & Hack_With_Ai decision is final."],
         ["p", "Reversing a payment through your bank or payment provider results in permanent revocation without refund and a block from every service."],
       ],
@@ -660,8 +660,8 @@
   // data-tos-open. Every node is built with createElement and textContent, so
   // the CSP needs no inline-script hash for it.
   var TOTAL_NOTES = {
-    IDR: "Total in rupiah, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For QRIS, e-wallet, virtual account and credit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
-    USD: "Total in US dollars, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For QRIS, e-wallet, virtual account and credit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
+    IDR: "Total in rupiah, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
+    USD: "Total in US dollars, with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.",
   };
 
   var tosDialog = null;

@@ -99,7 +99,7 @@ so the same code works on any page that includes the markup:
 2. **Colour and type** — the token block at the top of `assets/styles.css`: `--accent`,
    `--accent-2`, `--lime`, `--bg`, `--surface`, `--text-*`, plus `--grad` (the 115° gradient used on
    buttons and the console) and the two font families.
-3. **Contact and endpoint** — the Telegram links in every page (`https://t.me/developnhackwithai`)
+3. **Contact and endpoint** — the Telegram links in every page (`https://t.me/HacknDevelopWithAi`)
    and the API host in `docs.html`, the code samples and the footer (`freeai.jembatanai.com`).
 
 ## Before selling anything
@@ -118,7 +118,7 @@ and should be reviewed by a lawyer for the jurisdiction you actually operate in.
 
 ## No backend, by design
 
-Nothing here posts anywhere. Checkout continues to `https://t.me/developnhackwithai`, where the
+Nothing here posts anywhere. Checkout continues to `https://t.me/HacknDevelopWithAi`, where the
 existing bot handles payment and key delivery. There is no payment integration, no API proxy and
 no analytics script.
 

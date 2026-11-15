@@ -51,11 +51,11 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 ## Plans and pricing
 
-| Plan | Per day | Per month | Parallel sessions | Models |
-| --- | --- | --- | --- | --- |
-| Pro | — | $50 | 4 | 4 base models |
-| Max | — | $75 | 8 | 12 models (4 base + 8 extensions) |
-| Ultra | $23 | $155 | 14 | 16 models, frontier set included |
+| Plan | Per day | Per month | Parallel sessions | Requests/min | Models |
+| --- | --- | --- | --- | --- | --- |
+| Pro | — | $30 | 4 | 60 | 4 base models |
+| Max | — | $55 | 8 | 120 | 12 models (4 base + 8 extensions) |
+| Ultra | $20 | $100 | 14 | 240 | 16 models, frontier set included |
 
 Pro and Max are monthly only. Ultra is available daily or monthly. Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $20 / $95 / $595 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official
@@ -69,8 +69,8 @@ The catalogue has 16 models in three access tiers: 4 on every plan, 8 more on Ma
 
 | Format | Base URL |
 | --- | --- |
-| OpenAI | `https://freeai.jembatanai.com/v1` |
-| Anthropic | `https://freeai.jembatanai.com` (the SDK adds `/v1`) |
+| OpenAI | `https://freeai.hackwithmodels.com/v1` |
+| Anthropic | `https://freeai.hackwithmodels.com` (the SDK adds `/v1`) |
 
 Five routes are documented: `/v1/models`, `/v1/chat/completions`, `/v1/messages`, `/v1/responses`
 and `/v1/quota`. Keys use the `sk-` prefix.
@@ -108,7 +108,7 @@ so the same code works on any page that includes the markup:
    `--accent-2`, `--lime`, `--bg`, `--surface`, `--text-*`, plus `--grad` (the 115° gradient used on
    buttons and the console) and the two font families.
 3. **Contact and endpoint** — the Telegram links in every page (`https://t.me/HackDevelopWithAi`)
-   and the API host in `docs.html`, the code samples and the footer (`freeai.jembatanai.com`).
+   and the API host in `docs.html`, the code samples and the footer (`freeai.hackwithmodels.com`).
 
 ## Before selling anything
 

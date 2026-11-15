@@ -113,13 +113,14 @@
                       data-name="Pro monthly"
                       data-models="4 base models"
                       data-parallel="4"
+                      data-rpm="60"
                       data-validity="28 days"
-                      data-amount="50"
+                      data-amount="30"
                     />
                     <span class="checkout-option-body">
                       <span class="checkout-option-name">Pro <span class="checkout-option-tag">Base</span></span>
-                      <span class="checkout-option-meta">4 parallel sessions · 4 base models</span>
-                      <span class="checkout-option-price"><span data-price="50">$50</span> / 28 days</span>
+                      <span class="checkout-option-meta">4 parallel sessions · 4 base models · 60 requests/min</span>
+                      <span class="checkout-option-price"><span data-price="30">$30</span> / 28 days</span>
                     </span>
                   </label>
 
@@ -131,13 +132,14 @@
                       data-name="Max monthly"
                       data-models="12 models"
                       data-parallel="8"
+                      data-rpm="120"
                       data-validity="28 days"
-                      data-amount="75"
+                      data-amount="55"
                     />
                     <span class="checkout-option-body">
                       <span class="checkout-option-name">Max <span class="checkout-option-tag">Max</span></span>
-                      <span class="checkout-option-meta">8 parallel sessions · 12 models</span>
-                      <span class="checkout-option-price"><span data-price="75">$75</span> / 28 days</span>
+                      <span class="checkout-option-meta">8 parallel sessions · 12 models · 120 requests/min</span>
+                      <span class="checkout-option-price"><span data-price="55">$55</span> / 28 days</span>
                     </span>
                   </label>
 
@@ -149,13 +151,14 @@
                       data-name="Ultra monthly"
                       data-models="Every model + frontier"
                       data-parallel="14"
+                      data-rpm="240"
                       data-validity="28 days"
-                      data-amount="155"
+                      data-amount="100"
                     />
                     <span class="checkout-option-body">
                       <span class="checkout-option-name">Ultra <span class="checkout-option-tag">Ultra</span></span>
-                      <span class="checkout-option-meta">14 parallel sessions · every model + frontier</span>
-                      <span class="checkout-option-price"><span data-price="155">$155</span> / 28 days</span>
+                      <span class="checkout-option-meta">14 parallel sessions · 16 models · 240 requests/min</span>
+                      <span class="checkout-option-price"><span data-price="100">$100</span> / 28 days</span>
                     </span>
                   </label>
                 </div>
@@ -174,13 +177,14 @@
                       data-name="Ultra daily"
                       data-models="Every model + frontier"
                       data-parallel="14"
+                      data-rpm="240"
                       data-validity="1 day"
-                      data-amount="23"
+                      data-amount="20"
                     />
                     <span class="checkout-option-body">
                       <span class="checkout-option-name">Ultra daily <span class="checkout-option-tag">Ultra</span></span>
-                      <span class="checkout-option-meta">14 parallel sessions · every model + frontier</span>
-                      <span class="checkout-option-price"><span data-price="23">$23</span> / 1 day</span>
+                      <span class="checkout-option-meta">14 parallel sessions · 16 models · 240 requests/min</span>
+                      <span class="checkout-option-price"><span data-price="20">$20</span> / 1 day</span>
                     </span>
                   </label>
                 </div>
@@ -321,6 +325,10 @@
                 <span>Parallel sessions</span>
                 <span data-summary-parallel>4</span>
               </div>
+              <div class="summary-row" data-rpm-row>
+                <span>Requests per minute (RPM)</span>
+                <span data-summary-rpm>60</span>
+              </div>
               <div class="summary-row">
                 <span>Validity</span>
                 <span data-summary-validity>28 days</span>
@@ -328,7 +336,7 @@
 
               <div class="summary-total">
                 <span class="label">Order total</span>
-                <span class="value" data-summary-total data-price="50">$50</span>
+                <span class="value" data-summary-total data-price="30">$30</span>
               </div>
 
               <p class="summary-note summary-note-total">
@@ -454,7 +462,7 @@
 
         <div class="footer-bottom">
           <span>© <span data-year>2026</span> Hack &amp; Develop With Ai. We accept UPI, credit card, debit card and QR code.</span>
-          <span class="endpoint">freeai.jembatanai.com/v1</span>
+          <span class="endpoint">freeai.hackwithmodels.com/v1</span>
         </div>
       </div>
     </footer>

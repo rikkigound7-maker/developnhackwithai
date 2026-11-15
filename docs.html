@@ -148,11 +148,11 @@
               <div class="base-url-grid">
                 <div class="base-url-card">
                   <span class="base-url-label">OpenAI format</span>
-                  <code class="mono">https://freeai.jembatanai.com/v1</code>
+                  <code class="mono">https://freeai.hackwithmodels.com/v1</code>
                 </div>
                 <div class="base-url-card">
                   <span class="base-url-label">Anthropic format</span>
-                  <code class="mono">https://freeai.jembatanai.com</code>
+                  <code class="mono">https://freeai.hackwithmodels.com</code>
                 </div>
               </div>
 
@@ -167,8 +167,8 @@
                     <span data-copy-text>Copy</span>
                   </button>
                 </div>
-                <pre class="code-panel" id="base-env"><code><span class="tok-key">export</span> OPENAI_BASE_URL=<span class="tok-str">"https://freeai.jembatanai.com/v1"</span>
-<span class="tok-key">export</span> ANTHROPIC_BASE_URL=<span class="tok-str">"https://freeai.jembatanai.com"</span></code></pre>
+                <pre class="code-panel" id="base-env"><code><span class="tok-key">export</span> OPENAI_BASE_URL=<span class="tok-str">"https://freeai.hackwithmodels.com/v1"</span>
+<span class="tok-key">export</span> ANTHROPIC_BASE_URL=<span class="tok-str">"https://freeai.hackwithmodels.com"</span></code></pre>
                 <div class="code-foot">
                   The OpenAI SDK expects <code class="mono">/v1</code> in the base URL; the Anthropic
                   SDK adds it, so its base URL stops before it.
@@ -204,7 +204,7 @@
                   </div>
                   <pre class="code-panel" id="qs-openai"><code><span class="tok-key">from</span> openai <span class="tok-key">import</span> OpenAI
 
-OPENAI_BASE_URL = <span class="tok-str">"https://freeai.jembatanai.com/v1"</span>
+OPENAI_BASE_URL = <span class="tok-str">"https://freeai.hackwithmodels.com/v1"</span>
 
 client = OpenAI(
     base_url=OPENAI_BASE_URL,
@@ -237,7 +237,7 @@ print(reply.choices[<span class="tok-num">0</span>].message.content)</code></pre
                   </div>
                   <pre class="code-panel" id="qs-anthropic"><code><span class="tok-key">from</span> anthropic <span class="tok-key">import</span> Anthropic
 
-ANTHROPIC_BASE_URL = <span class="tok-str">"https://freeai.jembatanai.com"</span>
+ANTHROPIC_BASE_URL = <span class="tok-str">"https://freeai.hackwithmodels.com"</span>
 
 client = Anthropic(
     base_url=ANTHROPIC_BASE_URL,
@@ -269,7 +269,7 @@ print(reply.content[<span class="tok-num">0</span>].text)</code></pre>
                       <span data-copy-text>Copy</span>
                     </button>
                   </div>
-                  <pre class="code-panel" id="qs-curl"><code><span class="tok-key">curl</span> https://freeai.jembatanai.com/v1/chat/completions \
+                  <pre class="code-panel" id="qs-curl"><code><span class="tok-key">curl</span> https://freeai.hackwithmodels.com/v1/chat/completions \
   -H <span class="tok-str">"Authorization: Bearer sk-..."</span> \
   -H <span class="tok-str">"Content-Type: application/json"</span> \
   -d <span class="tok-str">'{
@@ -404,7 +404,7 @@ print(reply.content[<span class="tok-num">0</span>].text)</code></pre>
                       <span data-copy-text>Copy</span>
                     </button>
                   </div>
-                  <pre class="code-panel" id="client-claude"><code><span class="tok-key">export</span> ANTHROPIC_BASE_URL=<span class="tok-str">"https://freeai.jembatanai.com"</span>
+                  <pre class="code-panel" id="client-claude"><code><span class="tok-key">export</span> ANTHROPIC_BASE_URL=<span class="tok-str">"https://freeai.hackwithmodels.com"</span>
 <span class="tok-key">export</span> ANTHROPIC_API_KEY=<span class="tok-str">"sk-..."</span>
 <span class="tok-key">export</span> ANTHROPIC_MODEL=<span class="tok-str">"anthropic/claude-sonnet-5"</span>
 <span class="tok-key">export</span> ANTHROPIC_DEFAULT_HAIKU_MODEL=<span class="tok-str">"deepseek/deepseek-v4-flash"</span>
@@ -440,7 +440,7 @@ model_provider = <span class="tok-str">"jembatanai"</span>
 
 [model_providers.jembatanai]
 name = <span class="tok-str">"Hack &amp; Develop With Ai"</span>
-base_url = <span class="tok-str">"https://freeai.jembatanai.com/v1"</span>
+base_url = <span class="tok-str">"https://freeai.hackwithmodels.com/v1"</span>
 env_key = <span class="tok-str">"OPENAI_API_KEY"</span>
 wire_api = <span class="tok-str">"responses"</span></code></pre>
                   <div class="code-foot">
@@ -460,7 +460,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
                   <li>
                     <strong>Enter the key and base URL</strong> — put your
                     <code class="mono">sk-</code> key in OpenAI API Key, turn on Override OpenAI
-                    Base URL, and enter <code class="mono">https://freeai.jembatanai.com/v1</code>.
+                    Base URL, and enter <code class="mono">https://freeai.hackwithmodels.com/v1</code>.
                   </li>
                   <li>
                     <strong>Add a model</strong> — add an id from the catalogue, for example
@@ -478,7 +478,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
                   </li>
                   <li>
                     <strong>Enter the base URL and key</strong> — Base URL
-                    <code class="mono">https://freeai.jembatanai.com/v1</code>, and API Key set
+                    <code class="mono">https://freeai.hackwithmodels.com/v1</code>, and API Key set
                     to your <code class="mono">sk-</code> key.
                   </li>
                   <li>
@@ -514,7 +514,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
       <span class="tok-str">"npm"</span>: <span class="tok-str">"@ai-sdk/openai-compatible"</span>,
       <span class="tok-str">"name"</span>: <span class="tok-str">"Hack &amp; Develop With Ai"</span>,
       <span class="tok-str">"options"</span>: {
-        <span class="tok-str">"baseURL"</span>: <span class="tok-str">"https://freeai.jembatanai.com/v1"</span>,
+        <span class="tok-str">"baseURL"</span>: <span class="tok-str">"https://freeai.hackwithmodels.com/v1"</span>,
         <span class="tok-str">"apiKey"</span>: <span class="tok-str">"{env:JEMBATANAI_API_KEY}"</span>
       },
       <span class="tok-str">"models"</span>: {
@@ -535,7 +535,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
                   </li>
                   <li>
                     <strong>Enter the format, base URL, and key</strong> — Provider API OpenAI
-                    Compatible, Base URL <code class="mono">https://freeai.jembatanai.com/v1</code>,
+                    Compatible, Base URL <code class="mono">https://freeai.hackwithmodels.com/v1</code>,
                     and API key set to your <code class="mono">sk-</code> key.
                   </li>
                   <li>
@@ -635,7 +635,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
                     <tr>
                       <th scope="row">400</th>
                       <td><code class="mono">wrong_api_host</code></td>
-                      <td>The request came in through another host. Use <code class="mono">https://freeai.jembatanai.com/v1</code>; your key stays valid.</td>
+                      <td>The request came in through another host. Use <code class="mono">https://freeai.hackwithmodels.com/v1</code>; your key stays valid.</td>
                     </tr>
                     <tr>
                       <th scope="row">401</th>
@@ -690,7 +690,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
                     <tr>
                       <th scope="row">429</th>
                       <td><code class="mono">rpm_limit_exceeded</code></td>
-                      <td>A trial or older key hit its rate limit; the Pro, Max and Ultra plans have no rate limit. Wait for <code class="mono">retry_after_seconds</code> or the header <code class="mono">Retry-After</code>, then retry.</td>
+                      <td>A trial or older key hit its rate limit; live plans have tiered RPM limits: Pro 60, Max 120 and Ultra 240 requests/min. Wait for <code class="mono">retry_after_seconds</code> or the header <code class="mono">Retry-After</code>, then retry.</td>
                     </tr>
                     <tr>
                       <th scope="row">429</th>
@@ -765,7 +765,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
                     <span data-copy-text>Copy</span>
                   </button>
                 </div>
-                <pre class="code-panel" id="quota-curl"><code><span class="tok-key">curl</span> https://freeai.jembatanai.com/v1/quota \
+                <pre class="code-panel" id="quota-curl"><code><span class="tok-key">curl</span> https://freeai.hackwithmodels.com/v1/quota \
   -H <span class="tok-str">"Authorization: Bearer sk-..."</span>
 
 <span class="tok-com"># example response, shortened</span>
@@ -934,7 +934,7 @@ wire_api = <span class="tok-str">"responses"</span></code></pre>
 
         <div class="footer-bottom">
           <span>© <span data-year>2026</span> Hack &amp; Develop With Ai. We accept UPI, credit card, debit card and QR code.</span>
-          <span class="endpoint">freeai.jembatanai.com/v1</span>
+          <span class="endpoint">freeai.hackwithmodels.com/v1</span>
         </div>
       </div>
     </footer>

@@ -158,8 +158,8 @@
 
             <h2 id="t6">6. Fair use</h2>
             <p>
-              The Pro, Max and Ultra plans have no token quota and no rate limit; the only limit
-              is the number of parallel sessions for the level. A request above it waits a moment
+              The Pro, Max and Ultra plans have no token quota or total request cap. Their published
+              limits are 60, 120 and 240 requests/min plus 4, 8 and 14 parallel sessions. A request above the RPM waits a moment
               for its turn, then gets a <code class="mono">429</code> to retry if the queue has not
               opened yet. Trial and legacy keys carry their own limits.
             </p>
@@ -260,7 +260,7 @@
 
         <div class="footer-bottom">
           <span>© <span data-year>2026</span> Hack &amp; Develop With Ai. We accept UPI, credit card, debit card and QR code.</span>
-          <span class="endpoint">freeai.jembatanai.com/v1</span>
+          <span class="endpoint">freeai.hackwithmodels.com/v1</span>
         </div>
       </div>
     </footer>

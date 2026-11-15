@@ -90,7 +90,7 @@
     {
       h: "6. FAIR USE",
       body: [
-        ["li", "A subscription has no token limit. Its limits are the RPM, the same for every level, and the parallel sessions, which differ per level (Pro, Max, Ultra); both are published on the Plans page."],
+        ["li", "A subscription has no token limit. Its limits are the RPM (60 for Pro, 120 for Max, 240 for Ultra requests/min) and the parallel sessions (4, 8 and 14); both are published on the Plans page."],
         ["li", "A request past the RPM is held and one past the parallel sessions is queued, and refused only if the wait runs too long. Heavy use never revokes a key."],
         ["li", "RPM and sessions can be added per key through our Telegram until the key's period ends."],
         ["li", "A Token Plan, Custom Token or Custom Token Premium lapses 30 days after delivery; its unused tokens lapse with it. A pay-per-use balance never expires."],
@@ -570,6 +570,8 @@
       name: $("[data-summary-name]", form),
       models: $("[data-summary-models]", form),
       parallel: $("[data-summary-parallel]", form),
+      rpm: $("[data-summary-rpm]", form),
+      rpmRow: $("[data-rpm-row]", form),
       validity: $("[data-summary-validity]", form),
       total: $("[data-summary-total]", form),
     };
@@ -584,6 +586,8 @@
       if (fields.name) fields.name.textContent = data.name || "";
       if (fields.models) fields.models.textContent = data.models || "";
       if (fields.parallel) fields.parallel.textContent = data.parallel || "";
+      if (fields.rpm) fields.rpm.textContent = data.rpm || "";
+      if (fields.rpmRow) fields.rpmRow.hidden = !data.rpm;
       if (fields.validity) fields.validity.textContent = data.validity || "";
       if (fields.total) {
         // Keep data-price in sync with the chosen product.

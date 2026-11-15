@@ -1,18 +1,18 @@
 # Hack & Develop With Ai
 
-> Unlimited AI API gateway: one key for 16 AI models with no token quota and no request cap. Plans from $50 a month, paid by UPI, card or QR code.
+> Unlimited AI API gateway: one key for 16 AI models with no token quota and no request cap. Plans from $30 a month, paid by UPI, card or QR code.
 
 ## What this site offers
 - Unlimited tokens and unlimited requests on every subscription plan.
 - 16 models: Claude Haiku 5, DeepSeek V4 Pro, GPT-6 Luna, GPT-6 Terra, DeepSeek V4 Flash, Claude Sonnet 5.5, GPT-6.1 Sol, Gemini 4 Argon, GPT-6 Sol, Claude Sonnet 5, Kimi K3, Kimi K3.1, Claude Opus 5.5, GPT-6 Astra, Claude Opus 5, Claude Fable 5.1.
 - OpenAI-compatible /v1/chat/completions and /v1/responses; Anthropic-compatible /v1/messages.
-- Base URL: https://freeai.jembatanai.com/v1
+- Base URL: https://freeai.hackwithmodels.com/v1
 - Clients: Claude Code, Codex, Cursor, Cline, OpenCode, Kilo Code.
 
 ## Plans
-- Pro: $50/month (monthly only), 4 parallel sessions, 4 base models.
-- Max: $75/month (monthly only), 8 parallel sessions, 12 models.
-- Ultra: $23/day or $155/month, 14 parallel sessions, all 16 models.
+- Pro: $30/month (monthly only), 4 parallel sessions, 60 requests/min, 4 base models.
+- Max: $55/month (monthly only), 8 parallel sessions, 120 requests/min, 12 models.
+- Ultra: $20/day or $100/month, 14 parallel sessions, 240 requests/min, all 16 models.
 - Token Plans and pay-per-use are also available.
 
 ## Pages

@@ -2709,6 +2709,24 @@ button {
   margin-bottom: var(--space-md);
 }
 
+.prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+  list-style: decimal;
+  padding-left: 24px;
+}
+
+.prose ol li {
+  margin-bottom: 0;
+}
+
+.prose ol li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .prose ul {
   display: flex;
   flex-direction: column;

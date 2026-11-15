@@ -1,4 +1,4 @@
-# Develop & Hack_With_Ai — static front end for an AI gateway
+# Hack & Develop With Ai — static front end for an AI gateway
 
 A complete, dependency-free front end for a hosted AI gateway: one OpenAI/Anthropic-compatible
 endpoint, three subscription tiers, token plans, pay-per-use top-ups and an 18-model catalogue.

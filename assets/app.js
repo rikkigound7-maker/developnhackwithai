@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Develop & Hack_With_Ai — front-end behaviour
+   Hack & Develop With Ai — front-end behaviour
    Vanilla ES2020. No dependencies, no build step.
    Every block guards for its own elements so one file can serve every page.
    ========================================================================== */
@@ -49,13 +49,13 @@
         ["li", "Using the service for unlawful purposes. You are responsible for everything you send and everything the model returns."],
         ["li", "Probing, mapping or reverse engineering our systems, quotas and billing mechanisms."],
         ["li", "Sending data you are not entitled to send, including other people personal data or data under a confidentiality obligation."],
-        ["li", "Presenting yourself as Develop & Hack_With_Ai, or implying an official relationship with us, without a Partner licence."],
+        ["li", "Presenting yourself as Hack & Develop With Ai, or implying an official relationship with us, without a Partner licence."],
       ],
     },
     {
       h: "4. THE SERVICE IS PROVIDED AS IS",
       body: [
-        ["li", "Develop & Hack_With_Ai is a gateway to third-party model providers. We do not own, control or guarantee the models behind it."],
+        ["li", "Hack & Develop With Ai is a gateway to third-party model providers. We do not own, control or guarantee the models behind it."],
         ["li", "There is no uptime guarantee, no SLA, no promised speed, and no guarantee that any particular model stays available."],
         ["li", "The model catalogue, routing, capacity and output quality may change at any time without notice, including a model being withdrawn or paused by the upstream provider."],
         ["li", "Outages, errors, queueing, slowness, streams cut mid-answer and maintenance are normal risks of a gateway service."],
@@ -80,10 +80,10 @@
         ["li", "Second, payment received but the product was never delivered: we deliver the product. If that product no longer exists, we substitute another product or a credit of equal value."],
         ["li", "Third, the wrong product was delivered and has not been used at all: we swap it for the correct one."],
         ["p", "File any of the three through our Telegram support within 7 days of the payment date, with proof of payment and the order number. After that window a request is not processed."],
-        ["li", "The remedy is chosen by Develop & Hack_With_Ai: delivery of the product, a replacement product, or a credit of equal value. Money moves in one case only, the excess of a double payment."],
+        ["li", "The remedy is chosen by Hack & Develop With Ai: delivery of the product, a replacement product, or a credit of equal value. Money moves in one case only, the excess of a double payment."],
         ["p", "For the excess of a double payment: payment-gateway fees, transfer costs and exchange-rate differences are not returned; the return is paid to the original payment method."],
         ["p", "A payment sent to the wrong UPI ID or the wrong account, in the wrong amount, or without a verifiable transaction reference cannot be recovered and is not refunded."],
-        ["p", "Every request is reviewed manually and the Develop & Hack_With_Ai decision is final."],
+        ["p", "Every request is reviewed manually and the Hack & Develop With Ai decision is final."],
         ["p", "Reversing a payment through your bank or payment provider results in permanent revocation without refund and a block from every service."],
       ],
     },
@@ -112,9 +112,9 @@
       body: [
         ["li", "Reselling is allowed only as an official Partner through our Telegram. Partner status begins when the first payment clears."],
         ["li", "A Partner is fully responsible for their own customers, including support, billing, any promise the Partner makes, and their compliance with these terms."],
-        ["li", "A Partner indemnifies Develop & Hack_With_Ai against claims by the Partner customers. Those customers are not parties to this agreement and have no direct claim against us."],
+        ["li", "A Partner indemnifies Hack & Develop With Ai against claims by the Partner customers. Those customers are not parties to this agreement and have no direct claim against us."],
         ["li", "Wholesale prices, discount levels and partnership conditions may change at any time for subsequent purchases."],
-        ["li", "Partner balance can only be spent on Develop & Hack_With_Ai products, bears no interest, is not transferable, and cannot be withdrawn as cash."],
+        ["li", "Partner balance can only be spent on Hack & Develop With Ai products, bears no interest, is not transferable, and cannot be withdrawn as cash."],
       ],
     },
     {
@@ -133,7 +133,7 @@
         ["p", "A declined telemetry event is not a declined ad. Inline ad slot events in our telemetry are declined and never sent because they have no trigger here, while the ad auction request on the ads rail is still sent under the trigger above. The two are recorded separately."],
         ["p", "Sponsored runs are never executed. Where an ad carries an advertiser authored procedure, we block its execution on our side until a sandbox and a buyer consent flow exist. Accepting an offer at the protocol level runs nothing on your device or your data."],
         ["p", "We do not sell customer data. Data may be disclosed where required by applicable law, and is retained for as long as billing, abuse prevention and compliance require."],
-        ["li", "Develop & Hack_With_Ai server records are the binding evidence of usage, quota, timing and order status in the event of a disagreement."],
+        ["li", "Hack & Develop With Ai server records are the binding evidence of usage, quota, timing and order status in the event of a disagreement."],
       ],
     },
     {
@@ -142,7 +142,7 @@
         ["li", "Prices, plans, the model catalogue and these terms may change at any time. The version shown on the Terms page is the one in force."],
         ["li", "Continuing to use the service after a change means you accept the new terms."],
         ["li", "We are not liable for failures caused by events beyond our control, including upstream provider outages, network failures, power cuts, third-party policy changes, government action and disasters."],
-        ["li", "Develop & Hack_With_Ai is not liable for indirect loss of any kind: lost profit, lost data, business interruption, the cost of a substitute service, or loss arising from model output."],
+        ["li", "Hack & Develop With Ai is not liable for indirect loss of any kind: lost profit, lost data, business interruption, the cost of a substitute service, or loss arising from model output."],
         ["li", "Our maximum liability for all claims combined does not exceed the amount you paid for the product concerned in the last 30 days."],
         ["li", "The buyer confirms they are legally capable of entering this agreement. Any tax or levy on the buyer side is the buyer responsibility."],
         ["li", "A notice sent to the Telegram account used to purchase is deemed received. Keeping access to that account is your responsibility."],
@@ -150,7 +150,7 @@
         ["li", "If any provision here is held invalid, the rest remains in full force. Not enforcing a right on one occasion is not a waiver of it."],
         ["li", "These terms are governed by the law of the Republic of Indonesia. Disputes are settled amicably first."],
         ["li", "The Indonesian version is the binding one; any other language is provided for convenience."],
-        ["li", "By buying or using a Develop & Hack_With_Ai key you confirm that you have read, understood and accepted all of the above."],
+        ["li", "By buying or using a Hack & Develop With Ai key you confirm that you have read, understood and accepted all of the above."],
       ],
     },
   ];
@@ -670,7 +670,7 @@
   // data-tos-open. Every node is built with createElement and textContent, so
   // the CSP needs no inline-script hash for it.
   var NOTE_TAIL =
-    ", with no shipping cost and no extra fee from Develop & Hack_With_Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.";
+    ", with no shipping cost and no extra fee from Hack & Develop With Ai. For UPI, credit card and debit card, the payment processor may add a payment-channel fee. That fee is shown on the payment page before you pay.";
 
   function totalNote(currency) {
     var head =
@@ -749,7 +749,7 @@
     var head = el("div", "tos-gate-head");
     var headTop = el("div", "tos-gate-head-top");
     var headText = el("div", "tos-gate-head-text");
-    headText.appendChild(el("p", "tos-gate-eyebrow", "Develop & Hack_With_Ai"));
+    headText.appendChild(el("p", "tos-gate-eyebrow", "Hack & Develop With Ai"));
     var title = el("h2", "tos-gate-title", "Terms of Service and Refund Policy");
     title.id = "tos-gate-title";
     headText.appendChild(title);

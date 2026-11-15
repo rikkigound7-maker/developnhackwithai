@@ -656,7 +656,7 @@ button {
   align-items: center;
   gap: 10px;
   font-weight: 800;
-  font-size: 1.0625rem;
+  font-size: 1.1875rem;
   letter-spacing: -0.03em;
   margin-right: auto;
 }
@@ -829,7 +829,7 @@ button {
   }
 
   .brand {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     gap: 8px;
   }
 

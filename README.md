@@ -38,12 +38,14 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 | `checkout.html` | Twelve radio cards (monthly, daily, token plans) with a live, currency-aware summary |
 | `guides.html` | Four setup guides, four articles and the endpoint reference |
 | `about.html` | Brand and product overview, how the gateway works, plans, payments and contact |
+| `unlimited-ai.html` | SEO landing page for unlimited AI, unlimited tokens, unlimited requests and best AI models |
 | `contact.html` | Support, billing and community channels, payment methods, address |
 | `terms.html`, `privacy.html`, `refund.html`, `shipping.html` | Legal prose with its own sidebar |
 | `404.html` | Not-found page with the three most likely destinations |
 | `sitemap.xml` | XML sitemap with the canonical production URLs |
 | `robots.txt` | Crawl rules and the sitemap reference |
 | `site.webmanifest` | Web app manifest and app icons |
+| `llms.txt` | Short site summary for AI crawlers and assistants |
 
 ## Plans and pricing
 

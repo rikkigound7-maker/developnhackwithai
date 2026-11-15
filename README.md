@@ -45,9 +45,9 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | Plan | Per day | Per month | Parallel sessions | Models |
 | --- | --- | --- | --- | --- |
-| Pro | $5 | $40 | 2 | 8 base models |
-| Max | $7 | $65 | 6 | 13 models (8 base + 5 extensions) |
-| Ultron | $15 | $145 | 14 | 18 models, frontier set included |
+| Pro | $12 | $50 | 2 | 8 base models |
+| Max | $15 | $75 | 6 | 13 models (8 base + 5 extensions) |
+| Ultron | $23 | $155 | 14 | 18 models, frontier set included |
 
 Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $20 / $95 / $595 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official

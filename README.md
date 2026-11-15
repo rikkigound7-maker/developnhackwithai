@@ -39,6 +39,8 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 | `guides.html` | Four setup guides, four articles and the endpoint reference |
 | `about.html` | Brand and product overview, how the gateway works, plans, payments and contact |
 | `unlimited-ai.html` | SEO landing page for unlimited AI, unlimited tokens, unlimited requests and best AI models |
+| `blog.html` | Blog hub with three long-form guides |
+| `blog-*.html` | Articles: best AI model for coding, unlimited vs pay-per-token, Claude Code setup |
 | `contact.html` | Support, billing and community channels, payment methods, address |
 | `terms.html`, `privacy.html`, `refund.html`, `shipping.html` | Legal prose with its own sidebar |
 | `404.html` | Not-found page with the three most likely destinations |

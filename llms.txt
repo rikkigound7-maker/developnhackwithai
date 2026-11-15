@@ -23,6 +23,10 @@
 - Documentation: https://hackdevelopwithai.runs-on.dev/docs.html
 - Guides: https://hackdevelopwithai.runs-on.dev/guides.html
 - About: https://hackdevelopwithai.runs-on.dev/about.html
+- Blog: https://hackdevelopwithai.runs-on.dev/blog.html
+- Best AI model for coding: https://hackdevelopwithai.runs-on.dev/blog-best-ai-model-for-coding.html
+- Unlimited vs pay-per-token: https://hackdevelopwithai.runs-on.dev/blog-unlimited-ai-vs-pay-per-token.html
+- Claude Code setup: https://hackdevelopwithai.runs-on.dev/blog-claude-code-custom-api.html
 - Contact: https://hackdevelopwithai.runs-on.dev/contact.html
 
 ## Contact

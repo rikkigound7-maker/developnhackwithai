@@ -32,10 +32,10 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 | File | What it is |
 | --- | --- |
 | `index.html` | Hero, console mockup, stats, three plan cards, 16-model preview, setup tabs, data cards, FAQ |
-| `pricing.html` | Three tabs: Plans, Token Plan, Compare — plus six FAQs |
+| `pricing.html` | Three tabs: Plans, Token Plan, Compare — plus seven FAQs |
 | `models.html` | 16-model catalogue with access-tier filters, live count and empty state |
 | `docs.html` | Eight sections, five endpoints, six client tabs, error table, sticky scrollspy nav |
-| `checkout.html` | Twelve radio cards (monthly, daily, token plans) with a live, currency-aware summary |
+| `checkout.html` | Ten radio cards (3 monthly, 1 Ultra daily, 6 token plans) with a live, currency-aware summary |
 | `guides.html` | Four setup guides, four articles and the endpoint reference |
 | `about.html` | Brand and product overview, how the gateway works, plans, payments and contact |
 | `unlimited-ai.html` | SEO landing page for unlimited AI, unlimited tokens, unlimited requests and best AI models |
@@ -53,11 +53,11 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | Plan | Per day | Per month | Parallel sessions | Models |
 | --- | --- | --- | --- | --- |
-| Pro | $12 | $50 | 4 | 4 base models |
-| Max | $15 | $75 | 8 | 12 models (4 base + 8 extensions) |
+| Pro | — | $50 | 4 | 4 base models |
+| Max | — | $75 | 8 | 12 models (4 base + 8 extensions) |
 | Ultra | $23 | $155 | 14 | 16 models, frontier set included |
 
-Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $20 / $95 / $595 on
+Pro and Max are monthly only. Ultra is available daily or monthly. Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $20 / $95 / $595 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official
 provider price, with top-ups of $8, $15, $32, $80 and $160. A 500K-token trial is available once
 per Telegram account on the base models.

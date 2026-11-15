@@ -18,7 +18,7 @@
     />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/theme.js"></script>
-      <meta name="description" content="Choose Pro, Max or Ultra, daily or monthly, or a Token Plan. Pay by UPI, credit card, debit card or QR code and get your API key on Telegram." />
+      <meta name="description" content="Choose a monthly Pro, Max or Ultra plan, an Ultra daily plan, or a Token Plan. Pay by UPI, credit card, debit card or QR code and get your API key on Telegram." />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#1d4ed8" />
     <meta name="application-name" content="Hack &amp; Develop With Ai" />
@@ -29,7 +29,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hack &amp; Develop With Ai" />
     <meta property="og:title" content="Checkout — Choose Your AI API Plan | Hack &amp; Develop With Ai" />
-    <meta property="og:description" content="Choose Pro, Max or Ultra, daily or monthly, or a Token Plan. Pay by UPI, credit card, debit card or QR code and get your API key on Telegram." />
+    <meta property="og:description" content="Choose a monthly Pro, Max or Ultra plan, an Ultra daily plan, or a Token Plan. Pay by UPI, credit card, debit card or QR code and get your API key on Telegram." />
     <meta property="og:url" content="https://hackdevelopwithai.runs-on.dev/checkout.html" />
     <meta property="og:image" content="https://hackdevelopwithai.runs-on.dev/assets/og-image.png" />
     <meta property="og:image:type" content="image/png" />
@@ -39,7 +39,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Checkout — Choose Your AI API Plan | Hack &amp; Develop With Ai" />
-    <meta name="twitter:description" content="Choose Pro, Max or Ultra, daily or monthly, or a Token Plan. Pay by UPI, credit card, debit card or QR code and get your API key on Telegram." />
+    <meta name="twitter:description" content="Choose a monthly Pro, Max or Ultra plan, an Ultra daily plan, or a Token Plan. Pay by UPI, credit card, debit card or QR code and get your API key on Telegram." />
     <meta name="twitter:image" content="https://hackdevelopwithai.runs-on.dev/assets/og-image.png" />
     <meta name="twitter:image:alt" content="Hack &amp; Develop With Ai — one API key for every AI model" />
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://hackdevelopwithai.runs-on.dev/#organization","name":"Hack & Develop With Ai","url":"https://hackdevelopwithai.runs-on.dev/","logo":{"@type":"ImageObject","url":"https://hackdevelopwithai.runs-on.dev/assets/icon-512.png","width":512,"height":512},"image":"https://hackdevelopwithai.runs-on.dev/assets/og-image.png","description":"AI API gateway with one key for Claude, GPT-6, Gemini, DeepSeek and Kimi.","sameAs":["https://t.me/HackDevelopWithAi","https://github.com/rikkigound7-maker/developnhackwithai"],"contactPoint":{"@type":"ContactPoint","contactType":"customer support","url":"https://t.me/HackDevelopWithAi","availableLanguage":["en","hi"]}},{"@type":"WebSite","@id":"https://hackdevelopwithai.runs-on.dev/#website","url":"https://hackdevelopwithai.runs-on.dev/","name":"Hack & Develop With Ai","publisher":{"@id":"https://hackdevelopwithai.runs-on.dev/#organization"},"inLanguage":"en"},{"@type":"BreadcrumbList","@id":"https://hackdevelopwithai.runs-on.dev/checkout.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://hackdevelopwithai.runs-on.dev/"},{"@type":"ListItem","position":2,"name":"Checkout","item":"https://hackdevelopwithai.runs-on.dev/checkout.html"}]},{"@type":"WebPage","@id":"https://hackdevelopwithai.runs-on.dev/checkout.html#page","url":"https://hackdevelopwithai.runs-on.dev/checkout.html","name":"Checkout","isPartOf":{"@id":"https://hackdevelopwithai.runs-on.dev/#website"}}]}</script>
@@ -162,45 +162,11 @@
               </fieldset>
 
               <fieldset class="checkout-group" id="daily">
-                <legend>Daily plans</legend>
+                <legend>Ultra daily</legend>
+                <p class="small muted">Only Ultra is available as a daily plan. Pro and Max are monthly only.</p>
                 <div class="checkout-options">
-                  <label class="checkout-option">
-                    <input
-                      type="radio"
-                      name="product"
-                      value="pro-daily"
-                      data-name="Pro daily"
-                      data-models="4 base models"
-                      data-parallel="4"
-                      data-validity="1 day"
-                      data-amount="12"
-                    />
-                    <span class="checkout-option-body">
-                      <span class="checkout-option-name">Pro daily <span class="checkout-option-tag">Base</span></span>
-                      <span class="checkout-option-meta">4 parallel sessions · 4 base models</span>
-                      <span class="checkout-option-price"><span data-price="12">$12</span> / 1 day</span>
-                    </span>
-                  </label>
 
-                  <label class="checkout-option">
-                    <input
-                      type="radio"
-                      name="product"
-                      value="max-daily"
-                      data-name="Max daily"
-                      data-models="12 models"
-                      data-parallel="8"
-                      data-validity="1 day"
-                      data-amount="15"
-                    />
-                    <span class="checkout-option-body">
-                      <span class="checkout-option-name">Max daily <span class="checkout-option-tag">Max</span></span>
-                      <span class="checkout-option-meta">8 parallel sessions · 12 models</span>
-                      <span class="checkout-option-price"><span data-price="15">$15</span> / 1 day</span>
-                    </span>
-                  </label>
-
-                  <label class="checkout-option">
+                  <label class="checkout-option" id="ultra-daily">
                     <input
                       type="radio"
                       name="product"

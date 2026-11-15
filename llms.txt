@@ -1,6 +1,6 @@
 # Hack & Develop With Ai
 
-> Unlimited AI API gateway: one key for 16 AI models with no token quota and no request cap. Plans from $12 a day, paid by UPI, card or QR code.
+> Unlimited AI API gateway: one key for 16 AI models with no token quota and no request cap. Plans from $50 a month, paid by UPI, card or QR code.
 
 ## What this site offers
 - Unlimited tokens and unlimited requests on every subscription plan.
@@ -10,8 +10,8 @@
 - Clients: Claude Code, Codex, Cursor, Cline, OpenCode, Kilo Code.
 
 ## Plans
-- Pro: $12/day or $50/month, 4 parallel sessions, 4 base models.
-- Max: $15/day or $75/month, 8 parallel sessions, 12 models.
+- Pro: $50/month (monthly only), 4 parallel sessions, 4 base models.
+- Max: $75/month (monthly only), 8 parallel sessions, 12 models.
 - Ultra: $23/day or $155/month, 14 parallel sessions, all 16 models.
 - Token Plans and pay-per-use are also available.
 

@@ -1,7 +1,7 @@
 # Hack & Develop With Ai — static front end for an AI gateway
 
 A complete, dependency-free front end for a hosted AI gateway: one OpenAI/Anthropic-compatible
-endpoint, three subscription tiers, token plans, pay-per-use top-ups and an 18-model catalogue.
+endpoint, three subscription tiers, token plans, pay-per-use top-ups and an 16-model catalogue.
 Twelve pages, a shared design system, and no build step — open `index.html` or drag the folder
 onto Netlify.
 
@@ -31,15 +31,19 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Hero, console mockup, stats, three plan cards, 18-model preview, setup tabs, data cards, FAQ |
-| `pricing.html` | Four tabs: Plans, Token Plan, Pay-per-use, Compare — plus six FAQs |
-| `models.html` | 18-model catalogue with access-tier filters, live count and empty state |
+| `index.html` | Hero, console mockup, stats, three plan cards, 16-model preview, setup tabs, data cards, FAQ |
+| `pricing.html` | Three tabs: Plans, Token Plan, Compare — plus six FAQs |
+| `models.html` | 16-model catalogue with access-tier filters, live count and empty state |
 | `docs.html` | Eight sections, five endpoints, six client tabs, error table, sticky scrollspy nav |
 | `checkout.html` | Twelve radio cards (monthly, daily, token plans) with a live, currency-aware summary |
 | `guides.html` | Four setup guides, four articles and the endpoint reference |
+| `about.html` | Brand and product overview, how the gateway works, plans, payments and contact |
 | `contact.html` | Support, billing and community channels, payment methods, address |
 | `terms.html`, `privacy.html`, `refund.html`, `shipping.html` | Legal prose with its own sidebar |
 | `404.html` | Not-found page with the three most likely destinations |
+| `sitemap.xml` | XML sitemap with the canonical production URLs |
+| `robots.txt` | Crawl rules and the sitemap reference |
+| `site.webmanifest` | Web app manifest and app icons |
 
 ## Plans and pricing
 

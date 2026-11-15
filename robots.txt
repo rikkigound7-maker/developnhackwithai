@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
+
 Disallow: /checkout
 Disallow: /checkout.html
+Disallow: /404.html
 
-# No sitemap yet: this build is a single-locale static site.
+Sitemap: https://hackdevelopwithai.runs-on.dev/sitemap.xml

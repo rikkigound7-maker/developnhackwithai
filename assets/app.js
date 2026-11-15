@@ -27,7 +27,7 @@
     {
       h: "1. LICENCE: ONE KEY, ONE PERSON",
       body: [
-        ["li", "Every subscription key (Pro, Max, Ultron) is a personal licence for 1 (one) human user."],
+        ["li", "Every subscription key (Pro, Max, Ultra) is a personal licence for 1 (one) human user."],
         ["li", "A Token Plan and a pay-per-use balance may be shared, because both are metered per token."],
         ["li", "You may use it on your own personal devices (home PC, office PC, laptop, phone) and in any coding client."],
         ["li", "The key is a secret. A leaked key, and every request made with it, remains the key holder responsibility."],
@@ -90,7 +90,7 @@
     {
       h: "6. FAIR USE",
       body: [
-        ["li", "A subscription has no token limit. Its limits are the RPM, the same for every level, and the parallel sessions, which differ per level (Pro, Max, Ultron); both are published on the Plans page."],
+        ["li", "A subscription has no token limit. Its limits are the RPM, the same for every level, and the parallel sessions, which differ per level (Pro, Max, Ultra); both are published on the Plans page."],
         ["li", "A request past the RPM is held and one past the parallel sessions is queued, and refused only if the wait runs too long. Heavy use never revokes a key."],
         ["li", "RPM and sessions can be added per key through our Telegram until the key's period ends."],
         ["li", "A Token Plan, Custom Token or Custom Token Premium lapses 30 days after delivery; its unused tokens lapse with it. A pay-per-use balance never expires."],
@@ -507,7 +507,7 @@
       if (empty) empty.hidden = shown !== 0;
     }
 
-    // ?access=ultron preselects a tier, so the home chips and plan cards can
+    // ?access=ultra preselects a tier, so the home chips and plan cards can
     // deep-link. ?provider= is still honoured for old links, dropped if unknown.
     var params = new URLSearchParams(window.location.search);
     var wanted = params.get("access") || params.get("provider");
@@ -597,7 +597,7 @@
       radio.addEventListener("change", render);
     });
 
-    // checkout.html#ultron (linked from the plan cards) picks that product.
+    // checkout.html#ultra (linked from the plan cards) picks that product.
     var hash = window.location.hash.replace("#", "");
     if (hash) {
       var chosen = products.filter(function (input) {

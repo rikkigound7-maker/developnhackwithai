@@ -148,7 +148,7 @@
           </div>
 
           <div class="hero-stage">
-            <div class="console-card" role="img" aria-label="Hack &amp; Develop With Ai gateway log: four models served with 1M context, 4 parallel sessions, tiered RPM, an sk- key">
+            <div class="console-card" role="img" aria-label="Hack &amp; Develop With Ai gateway log: five models served with 1M context, 4 parallel sessions, tiered RPM, an sk- key">
               <div class="console-bar">
                 <span class="console-dots" aria-hidden="true">
                   <span class="console-dot"></span>
@@ -160,7 +160,7 @@
               </div>
               <div class="console-body">
                 <div class="console-row">
-                  <span class="console-model">Claude Haiku 5</span>
+                  <span class="console-model">Claude Haiku 5.5</span>
                   <span class="console-meter"><i style="--p: 82%"></i></span>
                   <span class="console-val">1M</span>
                 </div>
@@ -175,8 +175,13 @@
                   <span class="console-val">1M</span>
                 </div>
                 <div class="console-row">
-                  <span class="console-model">GPT-6 Terra</span>
+                  <span class="console-model">Gemini 4 Argon</span>
                   <span class="console-meter"><i style="--p: 73%"></i></span>
+                  <span class="console-val">1M</span>
+                </div>
+                <div class="console-row">
+                  <span class="console-model">Claude Opus 5</span>
+                  <span class="console-meter"><i style="--p: 88%"></i></span>
                   <span class="console-val">1M</span>
                 </div>
               </div>
@@ -241,8 +246,13 @@
 
           <div class="pricing-grid" data-reveal>
             <article class="price-card">
-              <span class="price-tag">Base</span>
-              <p class="price-kicker">Unlimited tokens</p>
+              <div class="plan-top">
+                <div class="plan-tags">
+                  <span class="plan-tag">Unlimited tokens</span>
+                  <span class="plan-tag plan-tag-unrestricted">All models are unrestricted</span>
+                </div>
+                <span class="price-tag">Base</span>
+              </div>
               <h3 class="price-name">Pro</h3>
               <p class="price-amount">
                 <span class="value" data-price="30">$30</span>
@@ -275,18 +285,24 @@
                   60 requests/min (RPM)
                 </li>
               </ul>
-              <dl class="price-models">
-                <dt><span>Models included</span><span>Base 4</span></dt>
-                <dd>
-                  Claude Haiku 5 · DeepSeek V4 Pro · GPT-6 Luna · GPT-6 Terra
-                </dd>
-              </dl>
+              <div class="price-models">
+                <p class="price-models-title">Models included</p>
+                <div class="price-models-row">
+                  <span class="price-models-label">Base <b>4</b></span>
+                  <span class="price-models-names">Claude Haiku 5.5 · DeepSeek V4 Pro · GPT-6 Luna · GPT-6.1 Terra</span>
+                </div>
+              </div>
               <a class="btn btn-secondary btn-md btn-block" href="checkout.html#pro">Choose Pro</a>
             </article>
 
             <article class="price-card">
-              <span class="price-tag">Max</span>
-              <p class="price-kicker">Unlimited tokens</p>
+              <div class="plan-top">
+                <div class="plan-tags">
+                  <span class="plan-tag">Unlimited tokens</span>
+                  <span class="plan-tag plan-tag-unrestricted">All models are unrestricted</span>
+                </div>
+                <span class="price-tag">Max</span>
+              </div>
               <h3 class="price-name">Max</h3>
               <p class="price-amount">
                 <span class="value" data-price="55">$55</span>
@@ -319,16 +335,28 @@
                   120 requests/min (RPM)
                 </li>
               </ul>
-              <dl class="price-models">
-                <dt><span>Extensions</span><span>8</span></dt>
-                <dd>DeepSeek V4 Flash · Claude Sonnet 5.5 · GPT-6.1 Sol · Gemini 4 Argon · GPT-6 Sol · Claude Sonnet 5 · Kimi K3 · Kimi K3.1</dd>
-              </dl>
+              <div class="price-models">
+                <p class="price-models-title">Models included</p>
+                <div class="price-models-row">
+                  <span class="price-models-label">Base <b>4</b></span>
+                  <span class="price-models-names">Claude Haiku 5.5 · DeepSeek V4 Pro · GPT-6 Luna · GPT-6.1 Terra</span>
+                </div>
+                <div class="price-models-row">
+                  <span class="price-models-label">Extensions <b>8</b></span>
+                  <span class="price-models-names">DeepSeek V4.1 Flash · Claude Sonnet 5 · Claude Sonnet 5.5 · GPT-6.1 Sol · GPT-6 Sol · Gemini 4 Argon · Kimi K3 · Kimi K3.1 Pro</span>
+                </div>
+              </div>
               <a class="btn btn-secondary btn-md btn-block" href="checkout.html#max">Choose Max</a>
             </article>
 
             <article class="price-card featured">
-              <span class="price-tag">Ultra</span>
-              <p class="price-kicker">Unlimited tokens</p>
+              <div class="plan-top">
+                <div class="plan-tags">
+                  <span class="plan-tag">Unlimited tokens</span>
+                  <span class="plan-tag plan-tag-unrestricted">All models are unrestricted</span>
+                </div>
+                <span class="price-tag">Ultra</span>
+              </div>
               <h3 class="price-name">Ultra</h3>
               <p class="price-amount">
                 <span class="value" data-price="20">$20</span>
@@ -361,10 +389,21 @@
                   240 requests/min (RPM)
                 </li>
               </ul>
-              <dl class="price-models">
-                <dt><span>Frontier</span><span>4</span></dt>
-                <dd>Claude Opus 5.5 · GPT-6 Astra · Claude Opus 5 · Claude Fable 5.1</dd>
-              </dl>
+              <div class="price-models">
+                <p class="price-models-title">Models included</p>
+                <div class="price-models-row">
+                  <span class="price-models-label">Base <b>4</b></span>
+                  <span class="price-models-names">Claude Haiku 5.5 · DeepSeek V4 Pro · GPT-6 Luna · GPT-6.1 Terra</span>
+                </div>
+                <div class="price-models-row">
+                  <span class="price-models-label">Extensions <b>8</b></span>
+                  <span class="price-models-names">DeepSeek V4.1 Flash · Claude Sonnet 5 · Claude Sonnet 5.5 · GPT-6.1 Sol · GPT-6 Sol · Gemini 4 Argon · Kimi K3 · Kimi K3.1 Pro</span>
+                </div>
+                <div class="price-models-row">
+                  <span class="price-models-label">Frontier <b>4</b></span>
+                  <span class="price-models-names">Claude Opus 5 · Claude Opus 5.5 · Claude Fable 5.1 · GPT-6 Astra</span>
+                </div>
+              </div>
               <a class="btn btn-primary btn-md btn-block" href="checkout.html#ultra">Choose Ultra</a>
             </article>
           </div>
@@ -393,111 +432,133 @@
             </p>
           </div>
 
-          <div class="filter-chips" role="group" aria-label="Jump to a tier in the catalogue">
-            <a class="chip" href="models.html?access=base">Every plan <span class="count">4</span></a>
-            <a class="chip" href="models.html?access=max">Max &amp; Ultra <span class="count">8</span></a>
-            <a class="chip" href="models.html?access=ultra">Ultra <span class="count">4</span></a>
+          <div class="model-tabs" data-tabs>
+            <div class="model-tablist" role="tablist" aria-label="Model groups">
+              <button class="model-tab" type="button" role="tab" id="home-tab-base" aria-controls="home-panel-base" aria-selected="true">Every plan <span class="count">4</span></button>
+              <button class="model-tab" type="button" role="tab" id="home-tab-ext" aria-controls="home-panel-ext" aria-selected="false" tabindex="-1">Max &amp; Ultra <span class="count">8</span></button>
+              <button class="model-tab" type="button" role="tab" id="home-tab-ultra" aria-controls="home-panel-ultra" aria-selected="false" tabindex="-1">Ultra <span class="count">4</span></button>
+            </div>
+
+            <div class="model-grid mt-lg" role="tabpanel" id="home-panel-base" aria-labelledby="home-tab-base" tabindex="0">
+              <article class="model-card">
+                <h3 class="model-name">Claude Haiku 5.5</h3>
+                <p class="model-id">anthropic/claude-haiku-5.5</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Every plan</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">DeepSeek V4 Pro</h3>
+                <p class="model-id">deepseek/deepseek-v4-pro-0813</p>
+                <div class="model-meta"><span>ctx 1M</span><span>out 384K</span></div>
+                <div class="model-foot"><span class="model-tier">Every plan</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">GPT-6 Luna</h3>
+                <p class="model-id">openai/gpt-6-luna</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Every plan</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">GPT-6.1 Terra</h3>
+                <p class="model-id">openai/gpt-6.1-terra</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Every plan</span></div>
+              </article>
+            </div>
+
+            <div class="model-grid mt-lg" role="tabpanel" id="home-panel-ext" aria-labelledby="home-tab-ext" tabindex="0" hidden>
+              <article class="model-card">
+                <h3 class="model-name">DeepSeek V4.1 Flash</h3>
+                <p class="model-id">deepseek/deepseek-v4.1-flash</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 384K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Claude Sonnet 5</h3>
+                <p class="model-id">anthropic/claude-sonnet-5</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Claude Sonnet 5.5</h3>
+                <p class="model-id">anthropic/claude-sonnet-5.5</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">GPT-6.1 Sol</h3>
+                <p class="model-id">openai/gpt-6.1-sol</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">GPT-6 Sol</h3>
+                <p class="model-id">openai/gpt-6-sol</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Gemini 4 Argon</h3>
+                <p class="model-id">google/gemini-4-argon</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Kimi K3</h3>
+                <p class="model-id">moonshotai/kimi-k3</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Kimi K3.1 Pro</h3>
+                <p class="model-id">moonshotai/kimi-k3.1-pro</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
+              </article>
+            </div>
+
+            <div class="model-grid mt-lg" role="tabpanel" id="home-panel-ultra" aria-labelledby="home-tab-ultra" tabindex="0" hidden>
+              <article class="model-card">
+                <h3 class="model-name">Claude Opus 5</h3>
+                <p class="model-id">anthropic/claude-opus-5</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Claude Opus 5.5</h3>
+                <p class="model-id">anthropic/claude-opus-5.5</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">Claude Fable 5.1</h3>
+                <p class="model-id">anthropic/claude-fable-5.1</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Ultra</span></div>
+              </article>
+
+              <article class="model-card">
+                <h3 class="model-name">GPT-6 Astra</h3>
+                <p class="model-id">openai/gpt-6-astra</p>
+                <div class="model-meta"><span class="model-vision">Vision</span><span>ctx 1M</span><span>out 128K</span></div>
+                <div class="model-foot"><span class="model-tier">Ultra</span></div>
+              </article>
+            </div>
           </div>
 
-          <div class="model-grid mt-lg">
-            <article class="model-card">
-              <h3 class="model-name">Claude Haiku 5</h3>
-              <p class="model-id">anthropic/claude-haiku-5</p>
-              <div class="model-foot"><span class="model-tier">Every plan</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">DeepSeek V4 Pro</h3>
-              <p class="model-id">deepseek/deepseek-v4-pro</p>
-              <div class="model-meta"><span>ctx 1M</span><span>out 384K</span></div>
-              <div class="model-foot"><span class="model-tier">Every plan</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">GPT-6 Luna</h3>
-              <p class="model-id">openai/gpt-6-luna</p>
-              <div class="model-meta"><span>out 128K</span></div>
-              <div class="model-foot"><span class="model-tier">Every plan</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">GPT-6 Terra</h3>
-              <p class="model-id">openai/gpt-6-terra</p>
-              <div class="model-foot"><span class="model-tier">Every plan</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">DeepSeek V4 Flash</h3>
-              <p class="model-id">deepseek/deepseek-v4-flash</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Claude Sonnet 5.5</h3>
-              <p class="model-id">anthropic/claude-sonnet-5.5</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">GPT-6.1 Sol</h3>
-              <p class="model-id">openai/gpt-6.1-sol</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Gemini 4 Argon</h3>
-              <p class="model-id">google/gemini-4-argon</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">GPT-6 Sol</h3>
-              <p class="model-id">openai/gpt-6-sol</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Claude Sonnet 5</h3>
-              <p class="model-id">anthropic/claude-sonnet-5</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Kimi K3</h3>
-              <p class="model-id">moonshotai/kimi-k3</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Kimi K3.1</h3>
-              <p class="model-id">moonshotai/kimi-k3.1</p>
-              <div class="model-foot"><span class="model-tier">Max &amp; Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Claude Opus 5.5</h3>
-              <p class="model-id">anthropic/claude-opus-5.5</p>
-              <div class="model-foot"><span class="model-tier">Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">GPT-6 Astra</h3>
-              <p class="model-id">openai/gpt-6-astra</p>
-              <div class="model-foot"><span class="model-tier">Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Claude Opus 5</h3>
-              <p class="model-id">anthropic/claude-opus-5</p>
-              <div class="model-foot"><span class="model-tier">Ultra</span></div>
-            </article>
-
-            <article class="model-card">
-              <h3 class="model-name">Claude Fable 5.1</h3>
-              <p class="model-id">anthropic/claude-fable-5.1</p>
-              <div class="model-foot"><span class="model-tier">Ultra</span></div>
-            </article>
-          </div>
+          <p class="small muted mt-md">Vision models accept image input as an <code class="mono">image_url</code> content part.</p>
 
           <p class="mt-lg">
             <a class="btn btn-secondary btn-md" href="models.html">Full catalogue</a>

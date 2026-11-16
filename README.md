@@ -69,8 +69,8 @@ The catalogue has 16 models in three access tiers: 4 on every plan, 8 more on Ma
 
 | Format | Base URL |
 | --- | --- |
-| OpenAI | `https://freeai.hackwithmodels.com/v1` |
-| Anthropic | `https://freeai.hackwithmodels.com` (the SDK adds `/v1`) |
+| OpenAI | `https://freeai.hackdevelopwithai.com/v1` |
+| Anthropic | `https://freeai.hackdevelopwithai.com` (the SDK adds `/v1`) |
 
 Five routes are documented: `/v1/models`, `/v1/chat/completions`, `/v1/messages`, `/v1/responses`
 and `/v1/quota`. Keys use the `sk-` prefix.
@@ -108,7 +108,7 @@ so the same code works on any page that includes the markup:
    `--accent-2`, `--lime`, `--bg`, `--surface`, `--text-*`, plus `--grad` (the 115° gradient used on
    buttons and the console) and the two font families.
 3. **Contact and endpoint** — the Telegram links in every page (`https://t.me/HackDevelopWithAi`)
-   and the API host in `docs.html`, the code samples and the footer (`freeai.hackwithmodels.com`).
+   and the API host in `docs.html`, the code samples and the footer (`freeai.hackdevelopwithai.com`).
 
 ## Before selling anything
 

@@ -3282,6 +3282,25 @@ button {
   color: var(--text-muted);
 }
 
+.price-monthly {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin: -2px 0 6px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.price-monthly::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
 .price-meta {
   margin-bottom: var(--space-lg);
   font-size: 1rem;

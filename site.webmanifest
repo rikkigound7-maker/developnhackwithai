@@ -1,13 +1,13 @@
 {
   "name": "Hack & Develop With Ai",
   "short_name": "Hack & Develop",
-  "description": "One API key for Claude, GPT-6, Gemini, DeepSeek and Kimi. Unlimited AI API plans from $12 a day, paid by UPI or card.",
+  "description": "One API key for 24 AI models — Claude, GPT-6, Gemini, GLM, Qwen, DeepSeek and Kimi. Unlimited AI API plans from $30 a month, paid by UPI or card.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f7f5f2",
-  "theme_color": "#1d4ed8",
+  "theme_color": "#6d4aff",
   "icons": [
     {
       "src": "/assets/icon-192.png",

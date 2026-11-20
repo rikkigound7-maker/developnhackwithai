@@ -21,6 +21,13 @@
   // A same-origin serverless endpoint can be added later without changing this file.
   if (endpoints.indexOf("/api/status/models") === -1) endpoints.push("/api/status/models");
 
+  var allowedAttr = root.getAttribute("data-status-models");
+  var allowed = allowedAttr
+    ? allowedAttr.split(",").map(function (id) {
+        return id.trim();
+      }).filter(Boolean)
+    : null;
+
   var TIER_LABELS = {
     base: "Base models",
     pro: "Pro set",
@@ -213,6 +220,12 @@
     if (!data) {
       setUnavailable();
       return;
+    }
+    if (allowed && allowed.length) {
+      data.models = data.models.filter(function (model) {
+        return allowed.indexOf(model.id) !== -1;
+      });
+      data.overall = deriveOverall(data.models);
     }
     render(data);
   }

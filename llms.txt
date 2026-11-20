@@ -10,8 +10,8 @@
 - Clients: Claude Code, Codex, Cursor, Cline, OpenCode, Kilo Code.
 
 ## Plans
-- Pro: $40/month (monthly only), 4 parallel sessions, 60 requests/min, 5 models (Lite pool).
-- Max: $55/month (monthly only), 8 parallel sessions, 120 requests/min, 12 models (Lite + Standard).
+- Pro: $40/month (monthly only), 4 parallel sessions, 60 requests/min, 5 models (Pro pool).
+- Max: $55/month (monthly only), 8 parallel sessions, 120 requests/min, 12 models (Pro + Max).
 - Ultra: $20/day or $100/month, 14 parallel sessions, 240 requests/min, all 16 models.
 - Token Plans: $25/$100/$600 base and $50/$185/$1200 frontier, 30 days. Pay-per-use: 20% of official price, balance never expires.
 

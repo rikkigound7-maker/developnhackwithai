@@ -54,17 +54,17 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | Plan | Per day | Per month | Parallel sessions | Requests/min | Models |
 | --- | --- | --- | --- | --- | --- |
-| Pro | — | $40 | 4 | 60 | 5 models (Lite pool) |
-| Max | — | $55 | 8 | 120 | 12 models (Lite + Standard) |
-| Ultra | $20 | $100 | 14 | 240 | 16 models (All-in-One) |
+| Pro | — | $40 | 4 | 60 | 5 models (Pro pool) |
+| Max | — | $55 | 8 | 120 | 12 models (Pro + Max) |
+| Ultra | $20 | $100 | 14 | 240 | 16 models (Pro + Max + Ultra) |
 
 Pro and Max are monthly only. Ultra is available daily or monthly. Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $25 / $100 / $600 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official
 provider price, with top-ups of $8, $15, $32, $80 and $160. A 500K-token trial is available once
-per Telegram account on the Lite models.
+per Telegram account on the Pro models.
 
-The catalogue has 16 models in three pools: 5 in Lite, 7 in Standard and 4 in Max. Pro opens Lite,
-Max adds Standard, and Ultra unlocks all 16.
+The catalogue has 16 models in three pools: 5 in Pro, 7 in Max and 4 in Ultra. Pro opens Pro,
+Max adds Max, and Ultra unlocks all 16.
 
 ## Endpoints
 

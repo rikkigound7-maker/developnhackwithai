@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://freeai.hackdevelopwithai.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://freeai.hackdevelopwithai.com https://hackwithmodels.duckdns.org; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Service Status — Live Model Health | Hack &amp; Develop With Ai</title>
@@ -15,7 +15,7 @@
     />
     <link rel="stylesheet" href="assets/styles.css" />
     <script src="assets/theme.js"></script>
-    <meta name="description" content="Live model health for the Hack &amp; Develop With Ai gateway. See which models are operational, degraded or in maintenance, with latency and the last check time." />
+    <meta name="description" content="Live model health for the upstream gateway. See which models are operational, degraded or in maintenance, with latency and the last check time." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#6d4aff" />
     <meta name="application-name" content="Hack &amp; Develop With Ai" />
@@ -27,7 +27,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hack &amp; Develop With Ai" />
     <meta property="og:title" content="Service Status — Live Model Health | Hack &amp; Develop With Ai" />
-    <meta property="og:description" content="Live model health for the Hack &amp; Develop With Ai gateway. See which models are operational, degraded or in maintenance." />
+    <meta property="og:description" content="Live model health for the upstream gateway. See which models are operational, degraded or in maintenance." />
     <meta property="og:url" content="https://hackdevelopwithai.runs-on.dev/status.html" />
     <meta property="og:image" content="https://hackdevelopwithai.runs-on.dev/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -37,7 +37,7 @@
     <meta name="twitter:title" content="Service Status — Live Model Health | Hack &amp; Develop With Ai" />
     <meta name="twitter:description" content="Live model health for the Hack &amp; Develop With Ai gateway." />
     <meta name="twitter:image" content="https://hackdevelopwithai.runs-on.dev/assets/og-image.png" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Service Status","url":"https://hackdevelopwithai.runs-on.dev/status.html","description":"Live model health for the Hack & Develop With Ai gateway.","isPartOf":{"@type":"WebSite","name":"Hack & Develop With Ai","url":"https://hackdevelopwithai.runs-on.dev/"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Service Status","url":"https://hackdevelopwithai.runs-on.dev/status.html","description":"Live model health for the upstream gateway.","isPartOf":{"@type":"WebSite","name":"Hack & Develop With Ai","url":"https://hackdevelopwithai.runs-on.dev/"}}</script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -83,12 +83,12 @@
         <div class="container">
           <p class="eyebrow">Live health checks</p>
           <h1 class="page-title">Service status.</h1>
-          <p class="page-lede">Model health for the Hack &amp; Develop With Ai gateway. Data refreshes from the gateway every 60 seconds.</p>
+          <p class="page-lede">Model health for the upstream gateway. Data refreshes from the gateway every 60 seconds.</p>
         </div>
       </section>
 
       <section class="section section-tight">
-        <div class="container" data-status data-status-endpoint="https://freeai.hackdevelopwithai.com/api/status/models">
+        <div class="container" data-status data-status-endpoint="https://hackwithmodels.duckdns.org/api/status/models">
           <div class="status-banner" id="statusBanner" role="status" aria-live="polite">
             <div class="banner-main" id="statusBannerText"><span class="sdot"></span><strong>Loading live status&hellip;</strong></div>
             <div class="status-meta"><span id="statusUpdatedAt">Checking&hellip;</span><button class="btn-refresh" type="button" id="statusRefresh">Refresh</button></div>
@@ -104,7 +104,7 @@
             <p class="stale-note">Loading model checks&hellip;</p>
           </div>
 
-          <p class="stale-note">Status data is fetched live from the gateway health endpoint. A model marked &ldquo;Maintenance / Issue&rdquo; is temporarily unavailable; nothing here reflects your account balance.</p>
+          <p class="stale-note">Status data is fetched live from the upstream gateway health endpoint. A model marked &ldquo;Maintenance / Issue&rdquo; is temporarily unavailable; nothing here reflects your account balance.</p>
         </div>
       </section>
     </main>

@@ -3649,11 +3649,13 @@ button {
 
 .status-tiers {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
   gap: var(--space-lg);
 }
 
 .tier-title {
-  margin-bottom: 10px;
+  margin: 0 0 10px 4px;
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -3663,9 +3665,10 @@ button {
 
 .tier-card {
   overflow: hidden;
+  padding: 8px 6px;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
 
@@ -3674,7 +3677,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 16px;
+  padding: 12px 14px;
   border-bottom: 1px solid var(--line);
 }
 

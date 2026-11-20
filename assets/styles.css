@@ -677,21 +677,13 @@ button {
   position: relative;
   width: 34px;
   height: 34px;
-  border-radius: 11px;
-  background: var(--grad);
-  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.28);
+  background: transparent url("logo-glyph-128.png") center / contain no-repeat;
+  filter: drop-shadow(0 3px 8px rgba(109, 74, 255, 0.28));
   flex: none;
 }
 
 .brand-mark::after {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border-radius: 3px;
-  border: 2px solid rgba(255, 255, 255, 0.92);
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  transform: rotate(45deg);
+  display: none;
 }
 
 .nav-links {

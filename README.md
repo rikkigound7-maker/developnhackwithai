@@ -32,8 +32,9 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 | File | What it is |
 | --- | --- |
 | `index.html` | Hero, console mockup, stats, three plan cards, 24-model preview, setup tabs, data cards, FAQ |
-| `pricing.html` | Three tabs: Plans, Token Plan, Compare — plus seven FAQs |
+| `pricing.html` | Four tabs: Plans, Token Plan, Pay-per-use, Compare — plus seven FAQs |
 | `models.html` | 24-model catalogue with access-tier filters, live count and empty state |
+| `status.html` | Live model health page; fetches the gateway status endpoint every 60 seconds |
 | `docs.html` | Eight sections, five endpoints, six client tabs, error table, sticky scrollspy nav |
 | `checkout.html` | Ten radio cards (3 monthly, 1 Ultra daily, 6 token plans) with a live, currency-aware summary |
 | `guides.html` | Four setup guides, four articles and the endpoint reference |

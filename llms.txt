@@ -21,6 +21,7 @@
 - Plans and pricing: https://hackdevelopwithai.runs-on.dev/pricing.html
 - Model catalogue: https://hackdevelopwithai.runs-on.dev/models.html
 - Documentation: https://hackdevelopwithai.runs-on.dev/docs.html
+- Service status: https://hackdevelopwithai.runs-on.dev/status.html
 - Guides: https://hackdevelopwithai.runs-on.dev/guides.html
 - About: https://hackdevelopwithai.runs-on.dev/about.html
 - Blog: https://hackdevelopwithai.runs-on.dev/blog.html

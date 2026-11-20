@@ -3490,12 +3490,12 @@ button {
   letter-spacing: 0.06em;
 }
 
-.model-card[data-tier="max"] .model-tier {
+.model-card[data-tier="standard"] .model-tier {
   background: rgba(30, 196, 212, 0.18);
   color: var(--accent-strong);
 }
 
-.model-card[data-tier="ultra"] .model-tier {
+.model-card[data-tier="max"] .model-tier {
   background: var(--amber-soft);
   color: var(--coral);
 }

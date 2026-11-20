@@ -170,10 +170,10 @@
               (<code class="mono">~/.zshrc</code> or <code class="mono">~/.bashrc</code>) or
               export them for the current terminal:
             </p>
-            <pre class="code-panel"><code>export ANTHROPIC_BASE_URL="https://freeai.hackdevelopwithai.com"
+            <pre class="code-panel"><code>export ANTHROPIC_BASE_URL="https://api.hackdevelopwithai.runs-on.dev"
 export ANTHROPIC_API_KEY="sk-..."
-export ANTHROPIC_MODEL="anthropic/claude-sonnet-5"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek/deepseek-v4-flash"</code></pre>
+export ANTHROPIC_MODEL="claude-5-sonnet"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-flash"</code></pre>
             <p>
               The Anthropic base URL stops before <code class="mono">/v1</code>; the SDK adds
               the version path itself. The OpenAI-compatible base URL includes
@@ -184,8 +184,8 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek/deepseek-v4-flash"</code></pre>
               Code sends its own built-in model names, which are not in the catalogue, and the
               request fails. The value must be a model id from the
               <a class="text-link" href="models.html">catalogue</a>, for example
-              <code class="mono">anthropic/claude-sonnet-5</code> or
-              <code class="mono">anthropic/claude-opus-5.5</code>.
+              <code class="mono">claude-5-sonnet</code> or
+              <code class="mono">claude-5-5-opus</code>.
             </p>
 
             <h2 id="run">Run Claude Code</h2>
@@ -198,13 +198,13 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek/deepseek-v4-flash"</code></pre>
 
             <h2 id="switch">Switch models inside a session</h2>
             <p>
-              Run <code class="mono">/model anthropic/claude-opus-5.5</code> to escalate a hard
-              task, or <code class="mono">/model anthropic/claude-haiku-5.5</code> for a quick
+              Run <code class="mono">/model claude-5-5-opus</code> to escalate a hard
+              task, or <code class="mono">/model claude-5-haiku</code> for a quick
               edit. The key and base URL stay the same. This is the practical advantage of one
-              gateway: you can move between frontier and fast models without another account.
+              gateway: you can move between Max and Lite models without another account.
             </p>
-            <pre class="code-panel"><code>/model anthropic/claude-opus-5.5
-/model anthropic/claude-sonnet-5</code></pre>
+            <pre class="code-panel"><code>/model claude-5-5-opus
+/model claude-5-sonnet</code></pre>
 
             <h2 id="fix">Troubleshooting</h2>
             <div class="table-wrap">
@@ -215,7 +215,7 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek/deepseek-v4-flash"</code></pre>
                 <tbody>
                   <tr><td>403 unknown model</td><td>Claude Code sent a built-in model name</td><td>Set <code class="mono">ANTHROPIC_MODEL</code> to a catalogue id</td></tr>
                   <tr><td>401 unauthorized</td><td>Key missing or wrong</td><td>Re-copy the <code class="mono">sk-</code> key and restart the shell</td></tr>
-                  <tr><td>404 on requests</td><td>Base URL includes the wrong path</td><td>Use <code class="mono">https://freeai.hackdevelopwithai.com</code> for Anthropic</td></tr>
+                  <tr><td>404 on requests</td><td>Base URL includes the wrong path</td><td>Use <code class="mono">https://api.hackdevelopwithai.runs-on.dev</code> for Anthropic</td></tr>
                   <tr><td>Model works in curl, not Claude Code</td><td>Environment not loaded in the terminal</td><td>Open a new terminal or re-source the profile</td></tr>
                   <tr><td>Session limit reached</td><td>Parallel session cap</td><td>Wait for a free slot or upgrade the plan</td></tr>
                 </tbody>
@@ -286,7 +286,7 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek/deepseek-v4-flash"</code></pre>
         <div class="container">
           <div class="cta-band">
             <div class="cta-inner">
-              <h2 class="cta-title">Set it up once. Use all 24 models.</h2>
+              <h2 class="cta-title">Set it up once. Use all 16 models.</h2>
               <p>Pro starts at $40 a month, with UPI, card and QR payment on Telegram.</p>
               <div class="cta-inline">
                 <a class="btn btn-primary btn-lg" href="checkout.html">Buy now</a>
@@ -365,7 +365,7 @@ export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek/deepseek-v4-flash"</code></pre>
 
         <div class="footer-bottom">
           <span>© <span data-year>2026</span> Hack &amp; Develop With Ai. We accept UPI, credit card, debit card and QR code.</span>
-          <span class="endpoint">freeai.hackdevelopwithai.com/v1</span>
+          <span class="endpoint">api.hackdevelopwithai.runs-on.dev/v1</span>
         </div>
       </div>
     </footer>

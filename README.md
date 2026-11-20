@@ -1,7 +1,7 @@
 # Hack & Develop With Ai — static front end for an AI gateway
 
 A complete, dependency-free front end for a hosted AI gateway: one OpenAI/Anthropic-compatible
-endpoint, three subscription tiers, token plans, pay-per-use top-ups and a 24-model catalogue.
+endpoint, three subscription tiers, token plans, pay-per-use top-ups and a 16-model catalogue.
 Twelve pages, a shared design system, and no build step — open `index.html` or drag the folder
 onto Netlify.
 
@@ -31,9 +31,9 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Hero, console mockup, stats, three plan cards, 24-model preview, setup tabs, data cards, FAQ |
+| `index.html` | Hero, console mockup, stats, three plan cards, 16-model preview, setup tabs, data cards, FAQ |
 | `pricing.html` | Four tabs: Plans, Token Plan, Pay-per-use, Compare — plus seven FAQs |
-| `models.html` | 24-model catalogue with access-tier filters, live count and empty state |
+| `models.html` | 16-model catalogue with pool filters, live count and empty state |
 | `status.html` | Live model health page; fetches the gateway status endpoint every 60 seconds |
 | `docs.html` | Eight sections, five endpoints, six client tabs, error table, sticky scrollspy nav |
 | `checkout.html` | Ten radio cards (3 monthly, 1 Ultra daily, 6 token plans) with a live, currency-aware summary |
@@ -54,24 +54,24 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | Plan | Per day | Per month | Parallel sessions | Requests/min | Models |
 | --- | --- | --- | --- | --- | --- |
-| Pro | — | $40 | 4 | 60 | 13 models (4 base + 9 Pro set) |
-| Max | — | $55 | 8 | 120 | 20 models (4 base + 9 Pro set + 7 extensions) |
-| Ultra | $20 | $100 | 14 | 240 | 24 models, frontier set included |
+| Pro | — | $40 | 4 | 60 | 5 models (Lite pool) |
+| Max | — | $55 | 8 | 120 | 12 models (Lite + Standard) |
+| Ultra | $20 | $100 | 14 | 240 | 16 models (All-in-One) |
 
 Pro and Max are monthly only. Ultra is available daily or monthly. Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $25 / $100 / $600 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official
 provider price, with top-ups of $8, $15, $32, $80 and $160. A 500K-token trial is available once
-per Telegram account on the base models.
+per Telegram account on the Lite models.
 
-The catalogue has 24 models in four access tiers: 4 on every plan, 9 more on Pro and up, 7 more on
-Max and Ultra, and 4 frontier models on Ultra only.
+The catalogue has 16 models in three pools: 5 in Lite, 7 in Standard and 4 in Max. Pro opens Lite,
+Max adds Standard, and Ultra unlocks all 16.
 
 ## Endpoints
 
 | Format | Base URL |
 | --- | --- |
-| OpenAI | `https://freeai.hackdevelopwithai.com/v1` |
-| Anthropic | `https://freeai.hackdevelopwithai.com` (the SDK adds `/v1`) |
+| OpenAI | `https://api.hackdevelopwithai.runs-on.dev/v1` |
+| Anthropic | `https://api.hackdevelopwithai.runs-on.dev` (the SDK adds `/v1`) |
 
 Five routes are documented: `/v1/models`, `/v1/chat/completions`, `/v1/messages`, `/v1/responses`
 and `/v1/quota`. Keys use the `sk-` prefix.
@@ -109,7 +109,7 @@ so the same code works on any page that includes the markup:
    `--accent-2`, `--lime`, `--bg`, `--surface`, `--text-*`, plus `--grad` (the 115° gradient used on
    buttons and the console) and the two font families.
 3. **Contact and endpoint** — the Telegram links in every page (`https://t.me/HackDevelopWithAi`)
-   and the API host in `docs.html`, the code samples and the footer (`freeai.hackdevelopwithai.com`).
+   and the API host in `docs.html`, the code samples and the footer (`api.hackdevelopwithai.runs-on.dev`).
 
 ## Before selling anything
 

@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/styles.css?v=31" />
     <script src="assets/theme.js"></script>
       <meta name="description" content="Compare Pro, Max and Ultra AI API plans. Unlimited tokens, 4–14 parallel sessions and 4–31 models including Claude, GPT-6, Gemini, DeepSeek and Kimi. Pro $40 and Max $55 monthly; Ultra $100 monthly or $20 a day." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -134,146 +134,62 @@
               </p>
             </div>
 
-            <div class="pricing-grid">
-              <article class="price-card">
-                <div class="plan-top">
-                  <div class="plan-tags">
-                    <span class="plan-tag">Unlimited tokens</span>
-                    <span class="plan-tag plan-tag-unrestricted">All models are unrestricted</span>
+            <ul class="plan-rail plan-rail-3" role="list">
+              <li class="plan" data-level="pro">
+                <div class="plan-media"><span class="plan-badge">PRO</span></div>
+                <div class="plan-body">
+                  <div class="plan-tags" role="list">
+                    <span class="plan-tag plan-tag-strong" role="listitem">Unlimited tokens</span>
+                    <span class="plan-tag plan-tag-unrestricted" role="listitem">All models are unrestricted</span>
                   </div>
-                  <span class="price-tag">Pro</span>
+                  <p class="plan-name">Pro</p>
+                  <div class="price"><span class="price-amount current"><span data-price="40">$40</span></span><span class="price-unit">per month</span></div>
+                  <p class="plan-alt">4 parallel sessions · 60 RPM · 1M TPM</p>
+                  <ul class="plan-feats" role="list"><li>Unlimited tokens and requests</li><li>19 models (Pro pool)</li><li>1M context</li></ul>
+                  <div class="plan-models">
+                    <p class="plan-models-title">Models included</p>
+                    <div class="plan-models-row"><span class="plan-models-label">Pro <b>19</b></span><span class="plan-models-names">Claude Haiku 5.5 · DeepSeek V4 Flash · DeepSeek V4.1 Flash · GLM 5.3 Flash · Qwen 3.8 Omni Flash · MiniMax M3.1 Flash · Qwen4-Max · Qwen3.8-Max · Qwen 3.8 Flash Next · Mimo V2.6 Flash · GPT-6 Luna · GPT-5.6 Luna · GPT-6 Terra · GPT-5.6 Terra · Gemini 3.8 Flash · DeepSeek V4 Pro · DeepSeek V4.1 Pro · GLM 5.3 · GPT-6.1 Terra</span></div>
+                  </div>
+                  <a class="btn btn-secondary btn-block" href="checkout.html#pro">Choose Pro</a>
                 </div>
-                <h2 class="price-name">Pro</h2>
-                <p class="price-amount">
-                  <span class="value" data-price="40">$40</span>
-                  <span class="period">/ month</span>
-                </p>
-                <p class="price-meta">4 parallel sessions · 60 RPM · 1M TPM</p>
-                <ul class="price-features">
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    Unlimited tokens and requests
-                  </li>
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    19 models (Pro pool)
-                  </li>
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    1M context
-                  </li>
-                </ul>
-                <div class="price-models">
-                  <p class="price-models-title">Models included</p>
-                  <div class="price-models-row">
-                    <span class="price-models-label">Pro <b>19</b></span>
-                    <span class="price-models-names">Claude Haiku 5.5 · DeepSeek V4 Flash · DeepSeek V4.1 Flash · GLM 5.3 Flash · Qwen 3.8 Omni Flash · MiniMax M3.1 Flash · Qwen4-Max · Qwen3.8-Max · Qwen 3.8 Flash Next · Mimo V2.6 Flash · GPT-6 Luna · GPT-5.6 Luna · GPT-6 Terra · GPT-5.6 Terra · Gemini 3.8 Flash · DeepSeek V4 Pro · DeepSeek V4.1 Pro · GLM 5.3 · GPT-6.1 Terra</span>
+              </li>
+              <li class="plan plan-best" data-level="max">
+                <div class="plan-media plan-media-best"><span class="plan-badge">MAX</span></div>
+                <div class="plan-body">
+                  <div class="plan-tags" role="list">
+                    <span class="plan-tag plan-tag-strong" role="listitem">Unlimited tokens</span>
+                    <span class="plan-tag plan-tag-unrestricted" role="listitem">All models are unrestricted</span>
                   </div>
+                  <p class="plan-name">Max</p>
+                  <div class="price"><span class="price-amount current"><span data-price="55">$55</span></span><span class="price-unit">per month</span></div>
+                  <p class="plan-alt">8 parallel sessions · 120 RPM · 2M TPM</p>
+                  <ul class="plan-feats" role="list"><li>Unlimited tokens and requests</li><li>26 models (Pro + Max)</li><li>1M context</li></ul>
+                  <div class="plan-models">
+                    <p class="plan-models-title">Models included</p>
+                    <div class="plan-models-row"><span class="plan-models-label">Pro <b>19</b></span><span class="plan-models-names">Claude Haiku 5.5 · DeepSeek V4 Flash · DeepSeek V4.1 Flash · GLM 5.3 Flash · Qwen 3.8 Omni Flash · MiniMax M3.1 Flash · Qwen4-Max · Qwen3.8-Max · Qwen 3.8 Flash Next · Mimo V2.6 Flash · GPT-6 Luna · GPT-5.6 Luna · GPT-6 Terra · GPT-5.6 Terra · Gemini 3.8 Flash · DeepSeek V4 Pro · DeepSeek V4.1 Pro · GLM 5.3 · GPT-6.1 Terra</span></div><div class="plan-models-row"><span class="plan-models-label">Max <b>7</b></span><span class="plan-models-names">Gemini 4 Argon · Claude Sonnet 5.5 · Claude Sonnet 5 · GPT-6.1 Sol · GPT-6 Sol · Kimi K3.1 · Kimi K3</span></div>
+                  </div>
+                  <a class="btn btn-primary btn-block" href="checkout.html#max">Choose Max</a>
                 </div>
-                <a class="btn btn-secondary btn-md btn-block" href="checkout.html#pro">Choose Pro</a>
-              </article>
-
-              <article class="price-card">
-                <div class="plan-top">
-                  <div class="plan-tags">
-                    <span class="plan-tag">Unlimited tokens</span>
-                    <span class="plan-tag plan-tag-unrestricted">All models are unrestricted</span>
+              </li>
+              <li class="plan" data-level="ultra">
+                <div class="plan-media"><span class="plan-badge">ULTRA</span></div>
+                <div class="plan-body">
+                  <div class="plan-tags" role="list">
+                    <span class="plan-tag plan-tag-strong" role="listitem">Unlimited tokens</span>
+                    <span class="plan-tag plan-tag-unrestricted" role="listitem">All models are unrestricted</span>
                   </div>
-                  <span class="price-tag">Max</span>
+                  <p class="plan-name">Ultra</p>
+                  <div class="price price-dual"><span class="price-amount current"><span data-price="20">$20</span><span class="price-per">/day</span></span><span class="price-alt-note"><span data-price="100">$100</span>/monthly</span></div>
+                  <p class="plan-alt">14 parallel sessions · 240 RPM · 4M TPM</p>
+                  <ul class="plan-feats" role="list"><li>Unlimited tokens and requests</li><li>All 31 models (Pro + Max + Ultra)</li></ul>
+                  <div class="plan-models">
+                    <p class="plan-models-title">Models included</p>
+                    <div class="plan-models-row"><span class="plan-models-label">Pro <b>19</b></span><span class="plan-models-names">Claude Haiku 5.5 · DeepSeek V4 Flash · DeepSeek V4.1 Flash · GLM 5.3 Flash · Qwen 3.8 Omni Flash · MiniMax M3.1 Flash · Qwen4-Max · Qwen3.8-Max · Qwen 3.8 Flash Next · Mimo V2.6 Flash · GPT-6 Luna · GPT-5.6 Luna · GPT-6 Terra · GPT-5.6 Terra · Gemini 3.8 Flash · DeepSeek V4 Pro · DeepSeek V4.1 Pro · GLM 5.3 · GPT-6.1 Terra</span></div><div class="plan-models-row"><span class="plan-models-label">Max <b>7</b></span><span class="plan-models-names">Gemini 4 Argon · Claude Sonnet 5.5 · Claude Sonnet 5 · GPT-6.1 Sol · GPT-6 Sol · Kimi K3.1 · Kimi K3</span></div><div class="plan-models-row"><span class="plan-models-label">Ultra <b>5</b></span><span class="plan-models-names">Claude Opus 5.5 · Claude Opus 5 · Claude Fable 5.2 · Claude Fable 5.1 · GPT-6 Astra</span></div>
+                  </div>
+                  <a class="btn btn-secondary btn-block" href="checkout.html#ultra">Choose Ultra</a>
                 </div>
-                <h2 class="price-name">Max</h2>
-                <p class="price-amount">
-                  <span class="value" data-price="55">$55</span>
-                  <span class="period">/ month</span>
-                </p>
-                <p class="price-meta">8 parallel sessions · 120 RPM · 2M TPM</p>
-                <ul class="price-features">
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    Unlimited tokens and requests
-                  </li>
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    26 models (Pro + Max)
-                  </li>
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    1M context
-                  </li>
-                </ul>
-                <div class="price-models">
-                  <p class="price-models-title">Models included</p>
-                  <div class="price-models-row">
-                    <span class="price-models-label">Pro <b>19</b></span>
-                    <span class="price-models-names">Claude Haiku 5.5 · DeepSeek V4 Flash · DeepSeek V4.1 Flash · GLM 5.3 Flash · Qwen 3.8 Omni Flash · MiniMax M3.1 Flash · Qwen4-Max · Qwen3.8-Max · Qwen 3.8 Flash Next · Mimo V2.6 Flash · GPT-6 Luna · GPT-5.6 Luna · GPT-6 Terra · GPT-5.6 Terra · Gemini 3.8 Flash · DeepSeek V4 Pro · DeepSeek V4.1 Pro · GLM 5.3 · GPT-6.1 Terra</span>
-                  </div>
-                  <div class="price-models-row">
-                    <span class="price-models-label">Max <b>7</b></span>
-                    <span class="price-models-names">Gemini 4 Argon · Claude Sonnet 5.5 · Claude Sonnet 5 · GPT-6.1 Sol · GPT-6 Sol · Kimi K3.1 · Kimi K3</span>
-                  </div>
-                </div>
-                <a class="btn btn-secondary btn-md btn-block" href="checkout.html#max">Choose Max</a>
-              </article>
-
-              <article class="price-card featured">
-                <div class="plan-top">
-                  <div class="plan-tags">
-                    <span class="plan-tag">Unlimited tokens</span>
-                    <span class="plan-tag plan-tag-unrestricted">All models are unrestricted</span>
-                  </div>
-                  <span class="price-tag">Ultra</span>
-                </div>
-                <h2 class="price-name">Ultra</h2>
-                <p class="price-amount">
-                  <span class="value" data-price="20">$20</span>
-                  <span class="period">/ day</span>
-                </p>
-                <p class="price-monthly"><span data-price="100">$100</span>/monthly</p>
-                <p class="price-meta">14 parallel sessions · 240 RPM · 4M TPM</p>
-                <ul class="price-features">
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    Unlimited tokens and requests
-                  </li>
-                  <li>
-                    <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M13.3 4.3a1 1 0 0 0-1.4 0L6 10.2 4.1 8.3a1 1 0 1 0-1.4 1.4l2.6 2.6a1 1 0 0 0 1.4 0l6.6-6.6a1 1 0 0 0 0-1.4Z" fill="currentColor" />
-                    </svg>
-                    All 31 models (Pro + Max + Ultra)
-                  </li>
-                </ul>
-                <div class="price-models">
-                  <p class="price-models-title">Models included</p>
-                  <div class="price-models-row">
-                    <span class="price-models-label">Pro <b>19</b></span>
-                    <span class="price-models-names">Claude Haiku 5.5 · DeepSeek V4 Flash · DeepSeek V4.1 Flash · GLM 5.3 Flash · Qwen 3.8 Omni Flash · MiniMax M3.1 Flash · Qwen4-Max · Qwen3.8-Max · Qwen 3.8 Flash Next · Mimo V2.6 Flash · GPT-6 Luna · GPT-5.6 Luna · GPT-6 Terra · GPT-5.6 Terra · Gemini 3.8 Flash · DeepSeek V4 Pro · DeepSeek V4.1 Pro · GLM 5.3 · GPT-6.1 Terra</span>
-                  </div>
-                  <div class="price-models-row">
-                    <span class="price-models-label">Max <b>7</b></span>
-                    <span class="price-models-names">Gemini 4 Argon · Claude Sonnet 5.5 · Claude Sonnet 5 · GPT-6.1 Sol · GPT-6 Sol · Kimi K3.1 · Kimi K3</span>
-                  </div>
-                  <div class="price-models-row">
-                    <span class="price-models-label">Ultra <b>5</b></span>
-                    <span class="price-models-names">Claude Opus 5.5 · Claude Opus 5 · Claude Fable 5.2 · Claude Fable 5.1 · GPT-6 Astra</span>
-                  </div>
-                </div>
-                <a class="btn btn-primary btn-md btn-block" href="checkout.html#ultra">Choose Ultra</a>
-              </article>
-            </div>
+              </li>
+            </ul>
             <p class="small muted mt-md">Pro and Max are monthly only. Ultra is available daily or monthly.</p>
 
             <p class="mt-lg small muted">

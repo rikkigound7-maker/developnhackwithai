@@ -4,15 +4,15 @@
 
 ## What this site offers
 - Unlimited tokens and unlimited requests on every subscription plan.
-- 16 models: Claude Haiku 5.5, DeepSeek V4 Pro, DeepSeek V4 Flash, GPT-6 Luna, GPT-6 Terra, GPT-6.1 Sol, GPT-6 Sol, Claude Sonnet 5.5, Claude Sonnet 5, Gemini 4 Argon, Kimi K3, Kimi K3.1, GPT-6 Astra, Claude Opus 5.5, Claude Opus 5, Claude Fable 5.1.
+- 31 models, displayed in three pools. Pro pool (19): Claude Haiku 5.5, DeepSeek V4 Flash, DeepSeek V4.1 Flash, GLM 5.3 Flash, Qwen 3.8 Omni Flash, MiniMax M3.1 Flash, Qwen4-Max, Qwen3.8-Max, Qwen 3.8 Flash Next, Mimo V2.6 Flash, GPT-6 Luna, GPT-5.6 Luna, GPT-6 Terra, GPT-5.6 Terra, Gemini 3.8 Flash, DeepSeek V4 Pro, DeepSeek V4.1 Pro, GLM 5.3, GPT-6.1 Terra. Max pool (7): Gemini 4 Argon, Claude Sonnet 5.5, Claude Sonnet 5, GPT-6.1 Sol, GPT-6 Sol, Kimi K3.1, Kimi K3. Ultra pool (5): Claude Opus 5.5, Claude Opus 5, Claude Fable 5.2, Claude Fable 5.1, GPT-6 Astra..
 - OpenAI-compatible /v1/chat/completions and /v1/responses; Anthropic-compatible /v1/messages.
 - Base URL: https://api.hackdevelopwithai.runs-on.dev/v1
 - Clients: Claude Code, Codex, Cursor, Cline, OpenCode, Kilo Code.
 
 ## Plans
-- Pro: $40/month (monthly only), 4 parallel sessions, 60 requests/min, 5 models (Pro pool).
-- Max: $55/month (monthly only), 8 parallel sessions, 120 requests/min, 12 models (Pro + Max).
-- Ultra: $20/day or $100/month, 14 parallel sessions, 240 requests/min, all 16 models.
+- Pro: $40/month (monthly only), 4 parallel sessions, 60 requests/min, 19 models (Pro pool).
+- Max: $55/month (monthly only), 8 parallel sessions, 120 requests/min, 26 models (Pro + Max).
+- Ultra: $20/day or $100/month, 14 parallel sessions, 240 requests/min, all 31 models.
 - Token Plans: $25/$100/$600 base and $50/$185/$1200 frontier, 30 days. Pay-per-use: 20% of official price, balance never expires.
 
 ## Pages

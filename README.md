@@ -1,7 +1,7 @@
 # Hack & Develop With Ai — static front end for an AI gateway
 
 A complete, dependency-free front end for a hosted AI gateway: one OpenAI/Anthropic-compatible
-endpoint, three subscription tiers, token plans, pay-per-use top-ups and a 16-model catalogue.
+endpoint, three subscription tiers, token plans, pay-per-use top-ups and a 31-model catalogue.
 Twelve pages, a shared design system, and no build step — open `index.html` or drag the folder
 onto Netlify.
 
@@ -31,9 +31,9 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Hero, console mockup, stats, three plan cards, 16-model preview, setup tabs, data cards, FAQ |
+| `index.html` | Hero, console mockup, stats, three plan cards, 31-model preview, setup tabs, data cards, FAQ |
 | `pricing.html` | Four tabs: Plans, Token Plan, Pay-per-use, Compare — plus seven FAQs |
-| `models.html` | 16-model catalogue with pool filters, live count and empty state |
+| `models.html` | 31-model catalogue with pool filters, live count and empty state |
 | `status.html` | Live model health page; fetches the gateway status endpoint every 60 seconds |
 | `docs.html` | Eight sections, five endpoints, six client tabs, error table, sticky scrollspy nav |
 | `checkout.html` | Ten radio cards (3 monthly, 1 Ultra daily, 6 token plans) with a live, currency-aware summary |
@@ -54,17 +54,17 @@ Locally: `python3 -m http.server 8123` in this folder, then open
 
 | Plan | Per day | Per month | Parallel sessions | Requests/min | Models |
 | --- | --- | --- | --- | --- | --- |
-| Pro | — | $40 | 4 | 60 | 5 models (Pro pool) |
-| Max | — | $55 | 8 | 120 | 12 models (Pro + Max) |
-| Ultra | $20 | $100 | 14 | 240 | 16 models (Pro + Max + Ultra) |
+| Pro | — | $40 | 4 | 60 | 19 models (Pro pool) |
+| Max | — | $55 | 8 | 120 | 26 models (Pro + Max) |
+| Ultra | $20 | $100 | 14 | 240 | 31 models (Pro + Max + Ultra) |
 
 Pro and Max are monthly only. Ultra is available daily or monthly. Monthly plans are billed for 28 days. Token Plans: 1B / 5B / 40B tokens at $25 / $100 / $600 on
 the base catalogue, and $50 / $185 / $1.200 on the frontier set. Pay-per-use is 20% of the official
 provider price, with top-ups of $8, $15, $32, $80 and $160. A 500K-token trial is available once
 per Telegram account on the Pro models.
 
-The catalogue has 16 models in three pools: 5 in Pro, 7 in Max and 4 in Ultra. Pro opens Pro,
-Max adds Max, and Ultra unlocks all 16.
+The catalogue has 31 models in three pools: 19 in Pro, 7 in Max and 5 in Ultra. Pro opens Pro,
+Max adds Max, and Ultra unlocks all 31.
 
 ## Endpoints
 
